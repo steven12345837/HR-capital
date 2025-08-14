@@ -35,7 +35,7 @@
             @apply text-4xl md:text-5xl font-black text-primary mb-4 text-center;
         }
         .section-subtitle {
-            @apply text-lg text-secondary-gray mb-16 text-center max-w-3xl mx-auto;
+            @apply text-lg text-secondary-gray mb-16 text-center max-w-3xl mx-auto leading-relaxed;
         }
         
         /* CTA按鈕樣式 */
@@ -58,6 +58,11 @@
         }
         .accordion-button.open::after {
             transform: scale(0.9) rotate(180deg);
+        }
+        /* Gallery Button Style */
+        .gallery-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -104,13 +109,13 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="text-center md:text-left">
                         <h1 class="text-4xl md:text-5xl font-black text-primary leading-tight">打造數位金融通路，<br>就在群益通路事業部</h1>
-                        <p class="mt-4 text-xl text-secondary-gray">從通路改變金融產業，打造全新的營運體系</p>
+                        <p class="mt-4 text-xl text-secondary-gray leading-relaxed">從通路改變金融產業，打造全新的營運體系</p>
                         
                         <div class="my-8 h-20 flex items-center justify-center md:justify-start">
                             <div id="job-carousel" class="text-2xl font-bold text-brand-red"></div>
                         </div>
 
-                        <p class="mb-10 text-secondary-gray max-w-lg mx-auto md:mx-0">我們要讓更多人，用更聰明、更安心的方式進入金融市場——這，就是我們的通路戰場。我們橫跨期貨、證券、財富管理、保險與數位行銷，打造以客戶為中心的整合平台。</p>
+                        <p class="mb-10 text-secondary-gray max-w-lg mx-auto md:mx-0 leading-relaxed">我們要讓更多人，用更聰明、更安心的方式進入金融市場——這，就是我們的通路戰場。我們橫跨期貨、證券、財富管理、保險與數位行銷，打造以客戶為中心的整合平台。</p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <a href="#openings" class="cta-button-primary">🚀 立即應徵</a>
@@ -161,25 +166,25 @@
                         <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M2 22v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6"/><path d="M18 14V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10"/><path d="M12 14v8"/><path d="M12 4h.01"/></svg></div>
                         <h4 class="text-xl font-bold text-primary mb-2">證券通路處</h4>
                         <p class="text-sm font-semibold text-brand-red mb-3">期貨進入分公司的總指揮中心</p>
-                        <p class="text-sm text-left">負責推動群益全台證券分公司導入期貨業務，整合業務團隊、商品教育、激勵制度與在地需求，打造一條讓證券營業員能「懂期貨、會操作、敢推廣」的培育與輔導路線。</p>
+                        <p class="text-sm text-left leading-relaxed">負責推動群益全台證券分公司導入期貨業務，整合業務團隊、商品教育、激勵制度與在地需求，打造一條讓證券營業員能「懂期貨、會操作、敢推廣」的培育與輔導路線。</p>
                     </div>
                     <div class="card text-center">
                         <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div>
                         <h4 class="text-xl font-bold text-primary mb-2">新興通路處</h4>
                         <p class="text-sm font-semibold text-gray-500 mb-3">未來可期</p>
-                        <p class="text-sm text-left">我們持續探索新的合作模式與機會，目前暫無職缺開放，但歡迎您持續關注。</p>
+                        <p class="text-sm text-left leading-relaxed">我們持續探索新的合作模式與機會，目前暫無職缺開放，但歡迎您持續關注。</p>
                     </div>
                     <div class="card text-center">
                         <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M17 14V7a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/><path d="M12 18H7.5a2.5 2.5 0 0 1 0-5H12V7"/><path d="M16 18h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2v6Z"/></svg></div>
                         <h4 class="text-xl font-bold text-primary mb-2">數位通路處</h4>
                         <p class="text-sm font-semibold text-brand-red mb-3">重新定義「業務」的數位化核心基地</p>
-                        <p class="text-sm text-left">負責打造群益期貨的全新業務形態：數位內容導客 × 跨商品推廣 × 顧問服務整合。以 LINE 為主軸，建立一套完整的線上客戶經營機制，打造無據點限制的虛擬業務團隊。</p>
+                        <p class="text-sm text-left leading-relaxed">負責打造群益期貨的全新業務形態：數位內容導客 × 跨商品推廣 × 顧問服務整合。以 LINE 為主軸，建立一套完整的線上客戶經營機制，打造無據點限制的虛擬業務團隊。</p>
                     </div>
                     <div class="card text-center">
                         <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg></div>
                         <h4 class="text-xl font-bold text-primary mb-2">綜合企劃處</h4>
                         <p class="text-sm font-semibold text-brand-red mb-3">讓制度落地、讓數據會說話的策略中台</p>
-                        <p class="text-sm text-left">部門的制度設計者、數據分析師與行政幕僚。設計跨商品的獎勵機制，負責營運KPI追蹤、數據儀表板建置、內部教育制度與執行SOP產出，是各處室背後最強的後勤支援。</p>
+                        <p class="text-sm text-left leading-relaxed">部門的制度設計者、數據分析師與行政幕僚。設計跨商品的獎勵機制，負責營運KPI追蹤、數據儀表板建置、內部教育制度與執行SOP產出，是各處室背後最強的後勤支援。</p>
                     </div>
                 </div>
                 <p class="mt-16 text-center text-2xl font-bold text-primary">你會在哪一處發光？讓我們一起來定義。</p>
@@ -213,35 +218,12 @@
             <div class="container mx-auto px-6">
                 <h2 class="section-title">團隊生活剪影</h2>
                 <p class="section-subtitle">我們不只是同事，更是共同成長的夥伴。在這裡，工作與生活可以完美結合。</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片7.jpg" alt="團隊活動照片：捐血公益活動">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片6.jpg" alt="團隊活動照片：同事慶生會">
-                        </div>
-                    </div>
-                    <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片5.jpg" alt="團隊活動照片：戶外團隊活動">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片1.jpg" alt="團隊活動照片：部門聚餐">
-                        </div>
-                    </div>
-                     <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片2.jpg" alt="團隊活動照片：內部教育訓練">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片3.jpg" alt="團隊活動照片：公司大型活動">
-                        </div>
-                    </div>
-                     <div class="grid gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="images/照片4.jpg" alt="團隊活動照片：大型講座">
-                        </div>
+                <div id="gallery-container" class="relative max-w-3xl mx-auto">
+                    <img id="gallery-image" class="w-full h-auto rounded-lg shadow-lg" src="" alt="團隊生活照片">
+                    <button id="prev-btn" class="gallery-btn absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2 bg-white/60 hover:bg-white/90 text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">&lt;</button>
+                    <button id="next-btn" class="gallery-btn absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2 bg-white/60 hover:bg-white/90 text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">&gt;</button>
+                    <div id="gallery-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <!-- Dots will be generated by JS -->
                     </div>
                 </div>
             </div>
@@ -381,6 +363,15 @@
             {number:4, title:'條件確認', description:'薪資福利與報到細節'},
             {number:'✓', title:'成為戰友', description:'歡迎加入我們！', isFinal:true}
         ];
+        const teamPhotos = [
+            'images/照片7.jpg',
+            'images/照片6.jpg',
+            'images/照片5.jpg',
+            'images/照片4.jpg',
+            'images/照片3.jpg',
+            'images/照片2.jpg',
+            'images/照片1.jpg'
+        ];
 
         // --- Functions ---
         document.addEventListener('DOMContentLoaded', function() {
@@ -432,17 +423,17 @@
                                 <div class="space-y-6 pt-6">
                                     <div>
                                         <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">✅ 任務內容</h4>
-                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3">
+                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3 leading-relaxed">
                                             ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
                                         </ul>
                                     </div>
                                     <div>
                                         <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">🚀 你會獲得的成長</h4>
-                                        <p class="text-gray-700 mt-3">${job.growth}</p>
+                                        <p class="text-gray-700 mt-3 leading-relaxed">${job.growth}</p>
                                     </div>
                                     <div>
                                         <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">👥 我們在找這樣的你</h4>
-                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3">
+                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3 leading-relaxed">
                                             ${job.qualifications.map(q => `<li>${q}</li>`).join('')}
                                         </ul>
                                     </div>
@@ -490,11 +481,66 @@
                     card.innerHTML = `
                         <div class="flex justify-center mb-4">${benefit.icon}</div>
                         <h4 class="text-xl font-bold text-primary mb-2">${benefit.title}</h4>
-                        <p class="text-sm">${benefit.description}</p>
+                        <p class="text-sm leading-relaxed">${benefit.description}</p>
                     `;
                     benefitsContainer.appendChild(card);
                 });
             }
+
+            // Team Life Gallery
+            const galleryImage = document.getElementById('gallery-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const galleryDotsContainer = document.getElementById('gallery-dots');
+            if(galleryImage) {
+                let currentPhotoIndex = 0;
+
+                function updateGallery() {
+                    galleryImage.src = teamPhotos[currentPhotoIndex];
+                    prevBtn.disabled = currentPhotoIndex === 0;
+                    nextBtn.disabled = currentPhotoIndex === teamPhotos.length - 1;
+                    
+                    // Update dots
+                    const dots = galleryDotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        if (index === currentPhotoIndex) {
+                            dot.classList.add('bg-primary');
+                            dot.classList.remove('bg-gray-300');
+                        } else {
+                            dot.classList.remove('bg-primary');
+                            dot.classList.add('bg-gray-300');
+                        }
+                    });
+                }
+                
+                // Create dots
+                teamPhotos.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'transition-colors', 'duration-300');
+                    dot.addEventListener('click', () => {
+                        currentPhotoIndex = index;
+                        updateGallery();
+                    });
+                    galleryDotsContainer.appendChild(dot);
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex > 0) {
+                        currentPhotoIndex--;
+                        updateGallery();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex < teamPhotos.length - 1) {
+                        currentPhotoIndex++;
+                        updateGallery();
+                    }
+                });
+
+                updateGallery(); // Initial load
+            }
+
 
             // Populate Apply Steps
             const applyStepsContainer = document.getElementById('apply-steps-container');
@@ -505,7 +551,7 @@
                     stepEl.innerHTML = `
                         <div class="w-16 h-16 rounded-full ${step.isFinal ? 'bg-brand-red' : 'bg-primary'} text-white flex items-center justify-center text-2xl font-bold border-4 border-light-gray shadow-md z-10">${step.number}</div>
                         <h4 class="font-bold mt-4 text-primary">${step.title}</h4>
-                        <p class="text-sm text-secondary-gray">${step.description}</p>
+                        <p class="text-sm text-secondary-gray leading-relaxed">${step.description}</p>
                     `;
                     applyStepsContainer.appendChild(stepEl);
                 });
@@ -542,4 +588,3 @@
     </script>
 </body>
 </html>
-
