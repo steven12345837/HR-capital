@@ -87,6 +87,11 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Gallery Button Style */
+        .gallery-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body class="text-secondary-gray">
@@ -94,13 +99,16 @@
     <!-- Header -->
     <header class="bg-white/80 sticky top-0 z-40 shadow-md border-b border-gray-200 transition-all duration-300">
         <nav class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#home" class="flex-shrink-0">
-                <img src="https://placehold.co/200x50/1E3A8A/ffffff?text=群益期貨" alt="群益期貨 Logo" class="h-10">
+            <!-- Logo with Text Updated -->
+            <a href="#home" class="flex-shrink-0 flex items-center gap-3">
+                <img src="images/群益logo.png" alt="群益期貨 Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/1E3A8A/ffffff?text=群益期貨';">
+                <span class="text-primary font-semibold text-sm hidden md:inline border-l-2 pl-3 border-gray-300">通路事業部｜人才招募</span>
             </a>
             <div class="hidden md:flex items-center space-x-2">
                 <a href="#about-us" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">關於我們</a>
                 <a href="#openings" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">熱門職缺</a>
                 <a href="#benefits" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">理想福利</a>
+                <a href="#team-life" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">團隊生活</a>
                 <a href="#career-path" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">職涯藍圖</a>
                 <a href="#apply" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">應徵流程</a>
                 <a href="#faq" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">常見問題</a>
@@ -117,6 +125,7 @@
             <a href="#about-us" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">關於我們</a>
             <a href="#openings" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">熱門職缺</a>
             <a href="#benefits" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">理想福利</a>
+            <a href="#team-life" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">團隊生活</a>
             <a href="#career-path" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">職涯藍圖</a>
             <a href="#apply" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">應徵流程</a>
             <a href="#faq" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">常見問題</a>
@@ -153,7 +162,7 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="relative w-full h-full">
-                            <img src="https://placehold.co/600x700/e0e7ff/1E3A8A?text=團隊合作" alt="團隊合作形象照" class="rounded-3xl shadow-2xl object-cover w-full h-full transform transition-transform duration-500 hover:scale-105">
+                            <img src="images/照片7.jpg" alt="團隊合作形象照" class="rounded-3xl shadow-2xl object-cover w-full h-full" onerror="this.onerror=null;this.src='https://placehold.co/600x700/e0e7ff/1E3A8A?text=團隊合作';">
                              <div class="absolute -bottom-8 -left-8 bg-brand-red text-white p-6 rounded-2xl shadow-lg max-w-xs">
                                 <p class="font-bold text-lg">台灣唯一上市期貨商</p>
                                 <p class="text-sm mt-1">全球12大交易所會員，直通世界舞台</p>
@@ -181,14 +190,14 @@
                         </div>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="https://placehold.co/600x450/1E3A8A/ffffff?text=公司架構" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4">
+                        <img src="images/群益架構.png" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4" onerror="this.onerror=null;this.src='https://placehold.co/600x450/1E3A8A/ffffff?text=公司架構';">
                     </div>
                 </div>
 
                 <!-- Department Vision -->
                 <div class="grid md:grid-cols-2 gap-12 items-center fade-in-section">
                     <div>
-                        <img src="https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover">
+                        <img src="images/照片5.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
                     </div>
                     <div>
                          <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
@@ -265,8 +274,30 @@
             </div>
         </section>
 
-        <!-- 5. Career Path -->
-        <section id="career-path" class="py-28 bg-white">
+        <!-- 5. Team Life Gallery -->
+        <section id="team-life" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">團隊生活剪影</h2>
+                    <p class="section-subtitle">我們不只是同事，更是共同成長的夥伴。在這裡，工作與生活可以完美結合。</p>
+                </div>
+                <div id="gallery-container" class="relative max-w-4xl mx-auto fade-in-section">
+                    <img id="gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="團隊生活照片">
+                    <button id="prev-btn" class="gallery-btn absolute top-1/2 left-2 md:-left-8 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button id="next-btn" class="gallery-btn absolute top-1/2 right-2 md:-right-8 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                    <div id="gallery-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <!-- Dots will be generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Career Path -->
+        <section id="career-path" class="py-28 bg-light-gray">
             <div class="container mx-auto px-6">
                 <div class="fade-in-section">
                     <h2 class="section-title">你的職涯藍圖</h2>
@@ -301,13 +332,13 @@
                         <p class="font-bold mt-4">- 證券通路處 C副理</p>
                     </div>
                      <div class="order-1 md:order-2">
-                        <img src="https://placehold.co/600x500/ffedd5/B91C1C?text=個人成長故事" alt="案例人物示意圖" class="rounded-2xl shadow-lg">
+                        <img src="images/照片1.jpg" alt="案例人物示意圖" class="rounded-2xl shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x500/ffedd5/B91C1C?text=個人成長故事';">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. Application Process -->
+        <!-- 7. Application Process -->
         <section id="apply" class="py-28 bg-light-gray">
              <div class="container mx-auto px-6">
                 <div class="fade-in-section">
@@ -339,7 +370,7 @@
              </div>
         </section>
 
-        <!-- 7. FAQ Section Restored -->
+        <!-- 8. FAQ Section Restored -->
         <section id="faq" class="py-28 bg-white">
             <div class="container mx-auto px-6">
                 <div class="fade-in-section">
@@ -400,6 +431,10 @@
             { question: '需要自己找客戶嗎？', answer: '我們的「數位通路處」已建立一套完整的數位導客系統，公司會提供名單與工具，讓你專注在客戶經營與服務上，而非傳統的陌生開發。我們更重視團隊合作與系統化作戰。' },
             { question: '有績效壓力嗎？制度怎麼算？', answer: '我們是目標導向的團隊，設有清晰的KPI與獎勵制度，但更強調團隊目標的達成。我們鼓勵健康的競爭，但反對惡性搶單。詳細的獎金與激勵制度會在面談時清楚說明，我們相信透明的制度是團隊信任的基礎。' }
         ];
+        const teamPhotos = [
+            'images/照片7.jpg', 'images/照片6.jpg', 'images/照片5.jpg', 'images/照片4.jpg',
+            'images/照片3.jpg', 'images/照片2.jpg', 'images/照片1.jpg'
+        ];
 
         // --- Functions ---
         document.addEventListener('DOMContentLoaded', function() {
@@ -432,16 +467,17 @@
                 jobs.forEach(job => {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'job-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300';
+                    // Corrected Job Header Layout
                     wrapper.innerHTML = `
                         <div class="job-header p-6 cursor-pointer group">
-                            <div class="flex justify-between items-center">
+                            <div class="grid grid-cols-[1fr_auto] items-start gap-4">
                                 <div>
                                     <h3 class="text-xl font-bold text-primary group-hover:text-brand-red transition-colors">${job.title}</h3>
                                     <p class="text-sm font-semibold text-secondary-gray mt-1">${job.department}</p>
                                 </div>
                                 <div class="arrow text-brand-red text-3xl transform transition-transform duration-300 flex-shrink-0">↓</div>
                             </div>
-                             <p class="text-gray-600 mt-4 leading-relaxed text-sm pr-10">${job.preview}</p>
+                            <p class="text-gray-600 mt-4 leading-relaxed text-sm">${job.preview}</p>
                             <div class="flex flex-wrap gap-2 mt-4">
                                 ${job.tags.map(tag => `<span class="bg-red-100 text-brand-red text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
                             </div>
@@ -510,6 +546,57 @@
                 });
             }
 
+            // Team Life Gallery
+            const galleryImage = document.getElementById('gallery-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const galleryDotsContainer = document.getElementById('gallery-dots');
+            if(galleryImage) {
+                let currentPhotoIndex = 0;
+
+                function updateGallery() {
+                    galleryImage.src = teamPhotos[currentPhotoIndex];
+                    galleryImage.onerror = function() {
+                        this.onerror=null;
+                        this.src=`https://placehold.co/900x600/f1f5f9/334155?text=圖片載入失敗`;
+                    };
+                    prevBtn.disabled = currentPhotoIndex === 0;
+                    nextBtn.disabled = currentPhotoIndex === teamPhotos.length - 1;
+                    
+                    const dots = galleryDotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('bg-primary', index === currentPhotoIndex);
+                        dot.classList.toggle('bg-gray-300', index !== currentPhotoIndex);
+                    });
+                }
+                
+                teamPhotos.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot w-3 h-3 rounded-full transition-colors duration-300';
+                    dot.addEventListener('click', () => {
+                        currentPhotoIndex = index;
+                        updateGallery();
+                    });
+                    galleryDotsContainer.appendChild(dot);
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex > 0) {
+                        currentPhotoIndex--;
+                        updateGallery();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex < teamPhotos.length - 1) {
+                        currentPhotoIndex++;
+                        updateGallery();
+                    }
+                });
+
+                updateGallery();
+            }
+
             // Populate Apply Steps
             const applyStepsContainer = document.getElementById('apply-steps-container');
             if(applyStepsContainer) {
@@ -570,4 +657,5 @@
     </script>
 </body>
 </html>
+
 
