@@ -480,7 +480,7 @@
                     card.className = 'card';
                     card.innerHTML = `
                         <div class="flex justify-center mb-4">${benefit.icon}</div>
-                        <h4 class="text-xl font-bold text-primary mb-2">${benefit.title}</h4>
+                        <h4 class="text-xl font-bold text-primary mb-5">${benefit.title}</h4>
                         <p class="text-sm leading-loose">${benefit.description}</p>
                     `;
                     benefitsContainer.appendChild(card);
@@ -551,7 +551,7 @@
                     stepEl.innerHTML = `
                         <div class="w-16 h-16 rounded-full ${step.isFinal ? 'bg-brand-red' : 'bg-primary'} text-white flex items-center justify-center text-2xl font-bold border-4 border-light-gray shadow-md z-10">${step.number}</div>
                         <h4 class="font-bold mt-4 text-primary">${step.title}</h4>
-                        <p class="text-sm text-secondary-gray leading-relaxed mt-2">${step.description}</p>
+                        <p class="text-sm text-secondary-gray leading-relaxed mt-5">${step.description}</p>
                     `;
                     applyStepsContainer.appendChild(stepEl);
                 });
