@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" class="scroll-smooth">  
+<html lang="zh-Hant" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +27,9 @@
         .border-brand-red { border-color: var(--brand-red); }
         .bg-light-gray { background-color: var(--light-gray-bg); }
 
-        /* 全新導覽列連結 - 更清晰的按鈕樣式 */
+        /* 導覽列連結樣式 */
         .nav-link {
-            @apply relative px-4 py-2 text-sm font-semibold text-white rounded-lg hover:bg-brand-red transition-all duration-300;
+            @apply relative px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-all duration-300;
         }
         .section-title {
             @apply text-4xl md:text-5xl font-black text-primary mb-4 text-center;
@@ -38,7 +38,7 @@
             @apply text-lg text-secondary-gray mb-16 text-center max-w-3xl mx-auto;
         }
         
-        /* 全新CTA按鈕樣式 - 強化框體感 */
+        /* CTA按鈕樣式 */
         .cta-button-primary {
             @apply inline-block px-10 py-4 font-bold rounded-lg text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl bg-brand-red ring-2 ring-offset-2 ring-brand-red;
         }
@@ -59,47 +59,38 @@
         .accordion-button.open::after {
             transform: scale(0.9) rotate(180deg);
         }
-        /* Modal styles */
-        .modal-overlay {
-            @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 transition-opacity duration-300;
-        }
-        .modal-content {
-            @apply bg-white rounded-2xl shadow-2xl p-8 md:p-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto transform transition-transform duration-300 scale-95;
-        }
-        .modal-overlay:not(.hidden) .modal-content {
-            @apply scale-100;
-        }
     </style>
 </head>
 <body class="text-secondary-gray">
 
     <!-- Header -->
-    <header class="bg-primary sticky top-0 z-40 shadow-md">
+    <header class="bg-white sticky top-0 z-40 shadow-md border-b border-gray-200">
         <nav class="container mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#home" class="flex-shrink-0">
-                <!-- Logo 位置預留 -->
-                <img src="images/群益期貨logo.png" alt="群益期貨 Logo" class="h-10" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-                <div class="text-white text-xl font-bold hidden">群益期貨</div>
+                <!-- Logo 位置 -->
+                <img src="images/群益期貨logo.png" alt="群益期貨 Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0d3d6f/ffffff?text=群益期貨';">
             </a>
             <div class="hidden md:flex items-center space-x-2">
                 <a href="#about-us" class="nav-link">關於我們</a>
                 <a href="#openings" class="nav-link">招募職缺</a>
-                <a href="#benefits" class="nav-link">福利制度</a>
+                <a href="#benefits" class="nav-link">福利與文化</a>
+                <a href="#team-life" class="nav-link">團隊生活</a>
                 <a href="#career-path" class="nav-link">職涯發展</a>
                 <a href="#apply" class="nav-link">應徵流程</a>
                 <a href="#faq" class="nav-link">常見問題</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <button id="mobile-menu-button" class="text-primary focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-primary/95">
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-t">
             <a href="#about-us" class="block text-center nav-link py-3">關於我們</a>
             <a href="#openings" class="block text-center nav-link py-3">招募職缺</a>
-            <a href="#benefits" class="block text-center nav-link py-3">福利制度</a>
+            <a href="#benefits" class="block text-center nav-link py-3">福利與文化</a>
+            <a href="#team-life" class="block text-center nav-link py-3">團隊生活</a>
             <a href="#career-path" class="block text-center nav-link py-3">職涯發展</a>
             <a href="#apply" class="block text-center nav-link py-3">應徵流程</a>
             <a href="#faq" class="block text-center nav-link py-3">常見問題</a>
@@ -127,7 +118,7 @@
                         </div>
                     </div>
                     <div class="hidden md:block">
-                        <img src="images/hero-scene.png" alt="工作場景示意圖" class="rounded-2xl shadow-2xl">
+                        <img src="http://googleusercontent.com/file_content/6" alt="團隊活動照片" class="rounded-2xl shadow-2xl object-cover w-full h-full">
                     </div>
                 </div>
             </div>
@@ -141,22 +132,22 @@
                 
                 <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
                     <div class="order-2 md:order-1">
-                        <div class="bg-white p-10 rounded-2xl shadow-lg">
+                        <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
                             <h3 class="text-3xl font-bold text-primary mb-4">公司簡介</h3>
                             <p class="text-base leading-relaxed">群益期貨，是你看見世界、打造專業、寫下影響力的地方。我們是台灣唯一上市的期貨商(股票代號:6024)，擁有全球12大交易所會員資格。我們讓投資人可以一鍵直通全球市場，而你，就是這條通路的一部分。<br><br>在這裡，你不只是在金融圈打拼，而是參與一場真的在改變產業的轉型計畫。從DMA極速下單系統、到CME選擇權即時報價平台，再到我們的顧問陪跑服務與交易教育系統——我們不只想把商品賣出去，而是想讓更多人「懂怎麼做、做得穩、走得遠」。</p>
                         </div>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="images/company-intro.png" alt="公司簡介示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover">
+                        <img src="http://googleusercontent.com/file_content/1" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4">
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="images/department-vision.png" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover">
+                        <img src="http://googleusercontent.com/file_content/5" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover">
                     </div>
                     <div>
-                         <div class="bg-white p-10 rounded-2xl shadow-lg">
+                         <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
                             <h3 class="text-3xl font-bold text-primary mb-4">部門願景</h3>
                             <p class="text-base leading-relaxed">通路事業部是群益期貨專責多通路整合與業務推進策略的核心部門。我們整合數位業務通路建置與集中化業務中心運營，同時支援全台分公司、集團異業合作對象與期貨交易輔助人。<br><br>我們的目標是：打造橫跨分公司、數位、制度與顧問商品的整合型行銷戰略部門，讓客戶、營業員與集團資源能夠無縫對接，共創效率與價值。</p>
                         </div>
@@ -199,9 +190,9 @@
         <section id="openings" class="py-28 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="section-title">招募職缺</h2>
-                <p class="section-subtitle">清晰呈現職缺內容並引導應徵</p>
-                <div id="job-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Job cards will be injected here by JavaScript -->
+                <p class="section-subtitle">點擊職缺標題，查看詳細工作內容</p>
+                <div id="job-list" class="space-y-6 max-w-4xl mx-auto">
+                    <!-- Job items will be injected here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -210,31 +201,79 @@
         <section id="benefits" class="py-28 bg-light-gray">
             <div class="container mx-auto px-6">
                 <h2 class="section-title">福利與文化</h2>
-                <p class="section-subtitle">展現人性化與成長支持文化</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    <!-- Benefit cards -->
+                <p class="section-subtitle">我們相信，照顧好夥伴，是公司最重要的責任。</p>
+                <div id="benefits-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <!-- Benefit cards will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: 團隊生活剪影 -->
+        <section id="team-life" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">團隊生活剪影</h2>
+                <p class="section-subtitle">我們不只是同事，更是共同成長的夥伴。在這裡，工作與生活可以完美結合。</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/2" alt="團隊活動照片：捐血公益活動">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/3" alt="團隊活動照片：同事慶生會">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/4" alt="團隊活動照片：戶外團隊活動">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/8" alt="團隊活動照片：部門聚餐">
+                        </div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/7" alt="團隊活動照片：內部教育訓練">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/6" alt="團隊活動照片：公司大型活動">
+                        </div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" src="http://googleusercontent.com/file_content/5" alt="團隊活動照片：大型講座">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 5. 職涯發展 -->
-        <section id="career-path" class="py-28 bg-white">
+        <section id="career-path" class="py-28 bg-light-gray">
             <div class="container mx-auto px-6">
                 <h2 class="section-title">職涯發展</h2>
-                <p class="section-subtitle">塑造職涯路徑，給出想像空間</p>
+                <p class="section-subtitle">我們提供的不只是一份工作，而是一個能讓你持續成長的事業舞台。</p>
                 
-                <h3 class="text-3xl font-bold text-primary mb-10 text-center">可能的升遷路徑</h3>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 mb-20">
-                    <div class="p-6 bg-gray-100 rounded-lg text-center shadow-sm">業務專員</div>
-                    <div class="text-brand-red font-bold text-3xl">→</div>
-                    <div class="p-6 bg-gray-200 rounded-lg text-center shadow-sm">業務科長</div>
-                    <div class="text-brand-red font-bold text-3xl">→</div>
-                    <div class="p-6 bg-gray-300 rounded-lg text-center shadow-sm">通路副理 / 產品經理</div>
+                <h3 class="text-3xl font-bold text-primary mb-12 text-center">可能的升遷路徑</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-2 mb-20">
+                    <div class="p-6 bg-white border-2 border-gray-200 rounded-lg text-center shadow-lg w-60">
+                        <div class="text-sm text-gray-500">Stage 1</div>
+                        <div class="text-xl font-bold text-primary">業務專員</div>
+                    </div>
+                    <div class="text-brand-red font-bold text-3xl p-4">→</div>
+                    <div class="p-6 bg-white border-2 border-gray-300 rounded-lg text-center shadow-lg w-60">
+                        <div class="text-sm text-gray-500">Stage 2</div>
+                        <div class="text-xl font-bold text-primary">業務科長</div>
+                    </div>
+                    <div class="text-brand-red font-bold text-3xl p-4">→</div>
+                    <div class="p-6 bg-white border-2 border-gray-400 rounded-lg text-center shadow-lg w-60">
+                         <div class="text-sm text-gray-500">Stage 3</div>
+                        <div class="text-xl font-bold text-primary">通路副理 / 產品經理</div>
+                    </div>
                 </div>
 
                 <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="images/career-path-example.png" alt="案例人物示意圖" class="rounded-2xl shadow-lg">
+                        <img src="https://placehold.co/500x500/cccccc/ffffff?text=人物案例" alt="案例人物示意圖" class="rounded-2xl shadow-lg">
                     </div>
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h4 class="text-2xl font-bold text-primary mb-3">從前線到中台的轉變</h4>
@@ -249,26 +288,26 @@
         </section>
 
         <!-- 6. 應徵流程 -->
-        <section id="apply" class="py-28 bg-light-gray">
+        <section id="apply" class="py-28 bg-white">
              <div class="container mx-auto px-6">
                 <h2 class="section-title">應徵流程</h2>
-                <p class="section-subtitle">降低轉職門檻、清楚說明流程</p>
+                <p class="section-subtitle">我們設計了簡單透明的流程，期待與你相遇。</p>
                 <div class="relative max-w-5xl mx-auto">
                     <div class="hidden md:block absolute top-8 left-0 w-full h-1 bg-gray-300"></div>
                     
-                    <div class="relative grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
-                        <!-- Steps -->
+                    <div id="apply-steps-container" class="relative grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
+                        <!-- Steps will be injected here -->
                     </div>
                 </div>
 
                 <div class="mt-20 grid md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
                     <div class="card p-8">
                         <h3 class="text-xl font-bold mb-4">前往 104 網站應徵</h3>
-                        <a href="https://www.104.com.tw/" target="_blank" class="cta-button-primary w-full">點擊前往</a>
+                        <a href="https://www.104.com.tw/company/18n4a3yw" target="_blank" class="cta-button-primary w-full">點擊前往</a>
                     </div>
                     <div class="card p-8">
                         <h3 class="text-xl font-bold mb-4">加入官方 LINE</h3>
-                        <a href="https://line.me/ti/p/@your-line-id" target="_blank" class="block w-full cta-button-secondary">點擊加入好友</a>
+                        <a href="https://line.me/R/ti/p/@a6024" target="_blank" class="block w-full cta-button-secondary">點擊加入好友</a>
                     </div>
                      <div class="card p-8">
                         <h3 class="text-xl font-bold mb-4">或寄送履歷至</h3>
@@ -279,10 +318,10 @@
         </section>
 
         <!-- 7. 常見問題 FAQ -->
-        <section id="faq" class="py-28 bg-white">
+        <section id="faq" class="py-28 bg-light-gray">
             <div class="container mx-auto px-6">
                 <h2 class="section-title">常見問題</h2>
-                <p class="section-subtitle">預先回答猶豫點，減少流失</p>
+                <p class="section-subtitle">預先回答您的疑問，讓您更放心。</p>
                 <div id="faq-container" class="max-w-3xl mx-auto space-y-4">
                     <!-- FAQ items will be injected here -->
                 </div>
@@ -307,13 +346,6 @@
             </div>
         </footer>
     </main>
-
-    <!-- Job Detail Modal -->
-    <div id="job-modal" class="modal-overlay hidden">
-        <div id="job-modal-content" class="modal-content">
-            <!-- Modal content will be injected here -->
-        </div>
-    </div>
     
     <!-- Mobile Fixed CTA -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white p-3 border-t border-gray-200 shadow-lg z-30">
@@ -324,11 +356,11 @@
         // --- Data ---
         const jobCarouselItems = ["專案整合幕僚","證券通路業務","數位通路業務科長","數位通路業務員","行政企劃人員"];
         const jobs = [
-            {id:1,title:'專案整合幕僚',department:'綜合企劃處',tags:['跨部門協作','制度設計','專案管理'],description:'我們正在尋找一位擁有系統思維、進度敏感度與策略眼光的「幕僚型人才」。你將直接支援部門主管，協助追蹤專案、整合資源、建立流程，讓策略真正被執行、讓專案不只是待辦清單，而是成果。這不只是追進度的工作，而是幫一整個部門「跑得動、跑得快、跑得準」。',responsibilities:['整合各處室專案進度與風險預警、進程設定','協助製作簡報、會議記錄、提案架構與執行追蹤','跨部門協作窗口，處理部門與他單位的溝通橋梁','優化制度流程與KPI追蹤邏輯，提升內部效率','主管交辦之專案研究、數據報告、制度內化輔助'],growth:'你將學會如何從部門高度鳥瞰全局，並深入細節推動執行。這是培養策略思維與營運管理能力的最佳位置。',qualifications:['擅長統整資訊與掌控節奏，邏輯與文字表達都不錯','熟悉 Notion / Excel / PowerPoint 等工具','有專案管理、營運企劃、幕僚或策略助理經驗佳','喜歡在「人與制度中間」，幫助事情發生的人']},
-            {id:2,title:'證券通路業務',department:'證券通路處',tags:['分公司協調','教育輔導','現場手感'],description:'不是每個證券分公司都會主動推期貨，但你可以讓這件事變得可行。我們正在尋找願意走進分公司、帶著制度與商品去解題的你。不是只會講商品，而是願意講「怎麼讓這件事在這裡發生」。',responsibilities:['規劃分公司期貨教育與商品推廣活動','協助設計銷售話術與業績激勵制度，提升轉化動能','實地拜訪、輔導營業員跨商品經營（含策略分享）','擔任總公司與據點的溝通協調者，處理落地細節','撰寫活動報告與提案資料，追蹤制度成效'],growth:'你將成為總公司與前線的關鍵樞紐，培養面對面的溝通協調力、教育訓練的設計力，以及解決實際業務問題的實戰力。',qualifications:['曾在金融前線（如證券營業員）或推廣端工作過','喜歡到現場與人互動、分享經驗、拆解問題','懂商品、不怕講解，有制度敏感度與教學熱忱','願意全台分公司出差，有戰略思維也有現場手感']},
-            {id:3,title:'數位通路業務科長',department:'數位通路處',tags:['數位帶人','團隊領導','業績拓展'],description:'通路事業部正在招募一位能夠結合業務開發力、團隊領導力與數位思維的數位業務科長。這不只是一份主管職，而是一項推動金融服務轉型的任務。你將負責打造並帶領一支以數位化為核心的業務團隊，橫跨線上與線下、期貨與證券、內容與商品、策略與成效。',responsibilities:['擬定業務拓展策略，發展數位通路與異業合作','負責期貨與證券業務之線上、線下整合推廣','深耕法人與高資產客群，提供策略引導與商品解說','規劃社群媒體話題策略，搭配團隊行銷活動推進導客成效','主導業務企劃與專案執行，定期檢核績效與轉換率','帶領並培訓團隊成員，建立可複製、可擴張的業務行為模式'],growth:'你將從一個執行者轉變為策略制定者與團隊領導者，學習如何從零到一建立團隊、設計業務模式，並用數據驅動決策。',qualifications:['有金融業務經驗3年以上，曾任業績好手或初階主管','有帶團隊經驗，具備規劃、輔導與績效追蹤能力','對顧問商品、策略導客、異業合作有高度興趣與實戰思維']},
-            {id:4,title:'數位通路業務員',department:'數位通路處',tags:['數位導客','客戶經營','團隊合作'],description:'你不需要自己單打獨鬥、從零摸索。我們已經準備好完整的 LINE 導客流程、教育素材、活動支援，讓你可以把重心放在「與客戶建立信任、提供價值」上。這份工作不是拼人脈、拼話術，而是透過內容、工具與團隊合作，系統化地培養你成為懂操作、會引導、持續進化的數位型業務員。',responsibilities:['經營國內外期貨、選擇權交易客戶，提供策略觀點與市場分析','透過講座、LINE、教育互動導客，建立穩定客戶關係','協助使用交易工具與商品操作引導（含期權邏輯）','積極參與訓練課程與商品會議，持續強化市場敏感度','發想、執行團隊業務活動，協助推廣主題與轉化流程'],growth:'你將學會最前緣的數位行銷與客戶經營技巧，建立自己的線上專業品牌，並在團隊支援下，打造穩健且可持續成長的業績模式。',qualifications:['有期貨業務員資格（必要）','對市場、數據、交易邏輯有興趣，樂於學習','重視關係經營，致力於長期支持與策略陪跑','想從單打獨鬥轉向系統化業績模式的人']},
-            {id:5,title:'行政企劃人員',department:'綜合企劃處',tags:['制度設計','數據分析','營運支援'],description:'你將成為部門最重要的推進引擎之一，負責設計制度、撰寫SOP、做出讓大家看得懂的數據報表，幫助每一位業務、每一個制度都能清楚執行、持續優化。如果你喜歡邏輯、有系統、善分析，這裡很適合你發揮。',responsibilities:['設計獎勵制度、跨商品激勵方案與業績追蹤機制','製作業務儀表板與營運報表，協助主管掌握數據與績效','撰寫並維護SOP、制度公告、推動內部制度落地','整合行銷活動所需行政支援，協助物料、流程與後勤安排','參與內外部行銷推廣與教育活動之專案執行與追蹤','支援跨處行政流程與主管交辦事項，協助專案統整與資料彙整'],growth:'你將成為組織運作的架構師，從數據中洞察問題，用制度解決問題。這份工作能培養你強大的邏輯分析與流程優化能力。',qualifications:['熟悉 Excel、Google Sheets、PPT','有制度設計、營運分析、行政或業務支援經驗佳','細心、有邏輯、可以一次處理多件事且條理清楚','喜歡當組織中讓事情變簡單、資訊變透明的那個人']}
+            {id:1,title:'專案整合幕僚',department:'綜合企劃處',tags:['跨部門協作','制度設計','專案管理'],preview:'我們正在尋找一位擁有系統思維、進度敏感度與策略眼光的「幕僚型人才」。你將直接支援部門主管，協助追蹤專案、整合資源、建立流程，讓策略真正被執行、讓專案不只是待辦清單，而是成果。這不只是追進度的工作，而是幫一整個部門「跑得動、跑得快、跑得準」。',description:'我們正在尋找一位擁有系統思維、進度敏感度與策略眼光的「幕僚型人才」。你將直接支援部門主管，協助追蹤專案、整合資源、建立流程，讓策略真正被執行、讓專案不只是待辦清單，而是成果。這不只是追進度的工作，而是幫一整個部門「跑得動、跑得快、跑得準」。',responsibilities:['整合各處室專案進度與風險預警、進程設定','協助製作簡報、會議記錄、提案架構與執行追蹤','跨部門協作窗口，處理部門與他單位的溝通橋梁','優化制度流程與KPI追蹤邏輯，提升內部效率','主管交辦之專案研究、數據報告、制度內化輔助'],growth:'你將學會如何從部門高度鳥瞰全局，並深入細節推動執行。這是培養策略思維與營運管理能力的最佳位置。',qualifications:['擅長統整資訊與掌控節奏，邏輯與文字表達都不錯','熟悉 Notion / Excel / PowerPoint 等工具','有專案管理、營運企劃、幕僚或策略助理經驗佳','喜歡在「人與制度中間」，幫助事情發生的人']},
+            {id:2,title:'證券通路業務',department:'證券通路處',tags:['分公司協調','教育輔導','現場手感'],preview:'不是只會講商品，而是願意走進分公司，帶著制度與商品去解題，講「怎麼讓這件事在這裡發生」。',description:'不是每個證券分公司都會主動推期貨，但你可以讓這件事變得可行。我們正在尋找願意走進分公司、帶著制度與商品去解題的你。不是只會講商品，而是願意講「怎麼讓這件事在這裡發生」。',responsibilities:['規劃分公司期貨教育與商品推廣活動','協助設計銷售話術與業績激勵制度，提升轉化動能','實地拜訪、輔導營業員跨商品經營（含策略分享）','擔任總公司與據點的溝通協調者，處理落地細節','撰寫活動報告與提案資料，追蹤制度成效'],growth:'你將成為總公司與前線的關鍵樞紐，培養面對面的溝通協調力、教育訓練的設計力，以及解決實際業務問題的實戰力。',qualifications:['曾在金融前線（如證券營業員）或推廣端工作過','喜歡到現場與人互動、分享經驗、拆解問題','懂商品、不怕講解，有制度敏感度與教學熱忱','願意全台分公司出差，有戰略思維也有現場手感']},
+            {id:3,title:'數位通路業務科長',department:'數位通路處',tags:['數位帶人','團隊領導','業績拓展'],preview:'這不只是一份主管職，而是一項推動金融服務轉型的任務。你將負責打造並帶領一支以數位化為核心的業務團隊。',description:'通路事業部正在招募一位能夠結合業務開發力、團隊領導力與數位思維的數位業務科長。這不只是一份主管職，而是一項推動金融服務轉型的任務。你將負責打造並帶領一支以數位化為核心的業務團隊，橫跨線上與線下、期貨與證券、內容與商品、策略與成效。',responsibilities:['擬定業務拓展策略，發展數位通路與異業合作','負責期貨與證券業務之線上、線下整合推廣','深耕法人與高資產客群，提供策略引導與商品解說','規劃社群媒體話題策略，搭配團隊行銷活動推進導客成效','主導業務企劃與專案執行，定期檢核績效與轉換率','帶領並培訓團隊成員，建立可複製、可擴張的業務行為模式'],growth:'你將從一個執行者轉變為策略制定者與團隊領導者，學習如何從零到一建立團隊、設計業務模式，並用數據驅動決策。',qualifications:['有金融業務經驗3年以上，曾任業績好手或初階主管','有帶團隊經驗，具備規劃、輔導與績效追蹤能力','對顧問商品、策略導客、異業合作有高度興趣與實戰思維']},
+            {id:4,title:'數位通路業務員',department:'數位通路處',tags:['數位導客','客戶經營','團隊合作'],preview:'這份工作不是拼人脈、拼話術，而是透過內容、工具與團隊合作，系統化地培養你成為懂操作、會引導、持續進化的數位型業務員。',description:'你不需要自己單打獨鬥、從零摸索。我們已經準備好完整的 LINE 導客流程、教育素材、活動支援，讓你可以把重心放在「與客戶建立信任、提供價值」上。這份工作不是拼人脈、拼話術，而是透過內容、工具與團隊合作，系統化地培養你成為懂操作、會引導、持續進化的數位型業務員。',responsibilities:['經營國內外期貨、選擇權交易客戶，提供策略觀點與市場分析','透過講座、LINE、教育互動導客，建立穩定客戶關係','協助使用交易工具與商品操作引導（含期權邏輯）','積極參與訓練課程與商品會議，持續強化市場敏感度','發想、執行團隊業務活動，協助推廣主題與轉化流程'],growth:'你將學會最前緣的數位行銷與客戶經營技巧，建立自己的線上專業品牌，並在團隊支援下，打造穩健且可持續成長的業績模式。',qualifications:['有期貨業務員資格（必要）','對市場、數據、交易邏輯有興趣，樂於學習','重視關係經營，致力於長期支持與策略陪跑','想從單打獨鬥轉向系統化業績模式的人']},
+            {id:5,title:'行政企劃人員',department:'綜合企劃處',tags:['制度設計','數據分析','營運支援'],preview:'你將成為部門最重要的推進引擎之一，負責設計制度、撰寫SOP、做出讓大家看得懂的數據報表，幫助每一位業務、每一個制度都能清楚執行、持續優化。',description:'你將成為部門最重要的推進引擎之一，負責設計制度、撰寫SOP、做出讓大家看得懂的數據報表，幫助每一位業務、每一個制度都能清楚執行、持續優化。如果你喜歡邏輯、有系統、善分析，這裡很適合你發揮。',responsibilities:['設計獎勵制度、跨商品激勵方案與業績追蹤機制','製作業務儀表板與營運報表，協助主管掌握數據與績效','撰寫並維護SOP、制度公告、推動內部制度落地','整合行銷活動所需行政支援，協助物料、流程與後勤安排','參與內外部行銷推廣與教育活動之專案執行與追蹤','支援跨處行政流程與主管交辦事項，協助專案統整與資料彙整'],growth:'你將成為組織運作的架構師，從數據中洞察問題，用制度解決問題。這份工作能培養你強大的邏輯分析與流程優化能力。',qualifications:['熟悉 Excel、Google Sheets、PPT','有制度設計、營運分析、行政或業務支援經驗佳','細心、有邏輯、可以一次處理多件事且條理清楚','喜歡當組織中讓事情變簡單、資訊變透明的那個人']}
         ];
         const faqs = [
             { question: '我是金融新手也可以應徵嗎？', answer: '部分職位歡迎無經驗但充滿熱忱的新手，特別是數位通路業務員與行政企劃人員。我們會提供完整的職前與在職訓練。但部分職位如證券通路業務、業務科長則需要相關經驗。請詳閱各職缺的條件說明。' },
@@ -337,10 +369,10 @@
             { question: '有績效壓力嗎？制度怎麼算？', answer: '我們是目標導向的團隊，設有清晰的KPI與獎勵制度，但更強調團隊目標的達成。我們鼓勵健康的競爭，但反對惡性搶單。詳細的獎金與激勵制度會在面談時清楚說明，我們相信透明的制度是團隊信任的基礎。' }
         ];
         const benefits = [
-            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-green"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>',title:'年度福利',description:'健康檢查、年終獎金、三節獎金、員工旅遊補助、生日禮金、彈性工時。'},
-            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-green"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',title:'培訓計畫',description:'完整新進訓練、跨單位輪調機會、顧問商品深度教育、外部專業課程補助。'},
-            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-green"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',title:'員工心聲',description:'"這裡不只教你賣商品，更教你怎麼建立自己的專業品牌。" - 數位通路處 A同事'},
-            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-green"><path d="M12.54 2.13a1 1 0 0 0-1.08 0l-4 2A1 1 0 0 0 7 5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1 1 1 0 0 0-.46-.87Z"/><path d="M4 10.27V22c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-11.73"/><path d="M22 10.27 12 5 2 10.27"/></svg>',title:'團隊活動',description:'定期部門聚餐、慶功宴、主題分享會、戶外Team Building活動。'}
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>',title:'全方位年度福利',description:'我們關心您的身心，提供年度健康檢查；您的貢獻值得回報，保障年終與三節獎金，更有旅遊補助與生日禮金，讓您工作與生活平衡。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',title:'系統化培訓計畫',description:'從完整的新人訓到跨單位輪調，我們投資您的成長。這裡有深度的顧問商品教育，更有外部專業課程補助，助您成為頂尖人才。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',title:'透明的溝通文化',description:'這裡不只教您賣商品，更教您建立專業品牌。我們鼓勵雙向溝通，您的聲音會被聽見，您的想法能推動改變。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12.54 2.13a1 1 0 0 0-1.08 0l-4 2A1 1 0 0 0 7 5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1 1 1 0 0 0-.46-.87Z"/><path d="M4 10.27V22c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-11.73"/><path d="M22 10.27 12 5 2 10.27"/></svg>',title:'充滿活力的團隊',description:'我們是戰友，也是家人。定期的部門聚餐、慶功宴、主題分享會與戶外 Team Building，讓團隊合作不只在辦公室，更在生活裡。'}
         ];
         const applySteps = [
             {number:1, title:'提出申請', description:'投遞履歷或加入LINE'},
@@ -361,148 +393,151 @@
 
             // Job Carousel
             const jobCarouselEl = document.getElementById('job-carousel');
-            let carouselIndex = 0;
-            function updateCarousel() {
-                jobCarouselEl.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-                setTimeout(() => {
-                    jobCarouselEl.textContent = jobCarouselItems[carouselIndex];
-                    jobCarouselEl.classList.remove('opacity-0');
-                    carouselIndex = (carouselIndex + 1) % jobCarouselItems.length;
-                }, 500);
+            if(jobCarouselEl) {
+                let carouselIndex = 0;
+                function updateCarousel() {
+                    jobCarouselEl.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                    setTimeout(() => {
+                        jobCarouselEl.textContent = jobCarouselItems[carouselIndex];
+                        jobCarouselEl.classList.remove('opacity-0');
+                        carouselIndex = (carouselIndex + 1) % jobCarouselItems.length;
+                    }, 500);
+                }
+                updateCarousel();
+                setInterval(updateCarousel, 3000);
             }
-            updateCarousel();
-            setInterval(updateCarousel, 3000);
 
-            // Populate Job Listings
+            // Populate Job Listings with Accordion Logic
             const jobListContainer = document.getElementById('job-list');
-            jobs.forEach(job => {
-                const card = document.createElement('div');
-                card.className = 'card cursor-pointer group';
-                card.setAttribute('data-job-id', job.id);
-                card.innerHTML = `
-                    <h3 class="text-xl font-bold text-primary group-hover:text-brand-red transition-colors">${job.title}</h3>
-                    <p class="text-sm font-semibold text-secondary-gray mb-3">${job.department}</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        ${job.tags.map(tag => `<span class="bg-red-100 text-brand-red text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-                    </div>
-                    <p class="text-sm text-gray-600">${job.description.substring(0, 80)}...</p>
-                    <div class="text-right mt-4 text-brand-red font-bold group-hover:underline">查看詳情 →</div>
-                `;
-                jobListContainer.appendChild(card);
-            });
+            if (jobListContainer) {
+                jobs.forEach(job => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'job-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300';
+                    wrapper.innerHTML = `
+                        <div class="job-header p-6 md:p-8 cursor-pointer group">
+                            <div class="flex justify-between items-start">
+                                <div class="pr-4">
+                                    <h3 class="text-xl font-bold text-primary group-hover:text-brand-red transition-colors">${job.title}</h3>
+                                    <p class="text-sm font-semibold text-secondary-gray mt-1">${job.department}</p>
+                                    <p class="text-gray-600 mt-4 leading-relaxed">${job.preview}</p>
+                                </div>
+                                <div class="arrow text-brand-red font-bold text-3xl transition-transform duration-300 transform group-hover:scale-125 flex-shrink-0 pt-1">↓</div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                ${job.tags.map(tag => `<span class="bg-red-100 text-brand-red text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="job-details max-h-0 overflow-hidden transition-all duration-700 ease-in-out">
+                            <div class="px-6 md:px-8 pb-8 border-t border-gray-200">
+                                <div class="space-y-6 pt-6">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">✅ 任務內容</h4>
+                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3">
+                                            ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">🚀 你會獲得的成長</h4>
+                                        <p class="text-gray-700 mt-3">${job.growth}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">👥 我們在找這樣的你</h4>
+                                        <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3">
+                                            ${job.qualifications.map(q => `<li>${q}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-8 text-center">
+                                    <a href="#apply" class="cta-button-primary inline-block">🟢 我要應徵這個職位</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    jobListContainer.appendChild(wrapper);
+                });
+
+                // Accordion Logic
+                const jobHeaders = document.querySelectorAll('.job-header');
+                jobHeaders.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const currentlyActive = document.querySelector('.job-header.active');
+                        if (currentlyActive && currentlyActive !== header) {
+                            currentlyActive.classList.remove('active');
+                            currentlyActive.querySelector('.arrow').classList.remove('rotate-180');
+                            currentlyActive.nextElementSibling.style.maxHeight = '0px';
+                        }
+
+                        header.classList.toggle('active');
+                        const arrow = header.querySelector('.arrow');
+                        const detailsPanel = header.nextElementSibling;
+                        if (header.classList.contains('active')) {
+                            arrow.classList.add('rotate-180');
+                            detailsPanel.style.maxHeight = detailsPanel.scrollHeight + 'px';
+                        } else {
+                            arrow.classList.remove('rotate-180');
+                            detailsPanel.style.maxHeight = '0px';
+                        }
+                    });
+                });
+            }
             
             // Populate Benefits
-            const benefitsContainer = document.querySelector('#benefits .grid');
-            benefits.forEach(benefit => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="flex justify-center mb-4">${benefit.icon}</div>
-                    <h4 class="text-xl font-bold text-primary mb-2">${benefit.title}</h4>
-                    <p class="text-sm">${benefit.description}</p>
-                `;
-                benefitsContainer.appendChild(card);
-            });
+            const benefitsContainer = document.getElementById('benefits-container');
+            if(benefitsContainer) {
+                benefits.forEach(benefit => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="flex justify-center mb-4">${benefit.icon}</div>
+                        <h4 class="text-xl font-bold text-primary mb-2">${benefit.title}</h4>
+                        <p class="text-sm">${benefit.description}</p>
+                    `;
+                    benefitsContainer.appendChild(card);
+                });
+            }
 
             // Populate Apply Steps
-            const applyStepsContainer = document.querySelector('#apply .grid');
-            applySteps.forEach(step => {
-                const stepEl = document.createElement('div');
-                stepEl.className = 'flex flex-col items-center';
-                stepEl.innerHTML = `
-                    <div class="w-16 h-16 rounded-full ${step.isFinal ? 'bg-accent-green' : 'bg-primary'} text-white flex items-center justify-center text-2xl font-bold border-4 border-light-gray shadow-md z-10">${step.number}</div>
-                    <h4 class="font-bold mt-4">${step.title}</h4>
-                    <p class="text-sm">${step.description}</p>
-                `;
-                applyStepsContainer.appendChild(stepEl);
-            });
+            const applyStepsContainer = document.getElementById('apply-steps-container');
+            if(applyStepsContainer) {
+                applySteps.forEach(step => {
+                    const stepEl = document.createElement('div');
+                    stepEl.className = 'flex flex-col items-center relative';
+                    stepEl.innerHTML = `
+                        <div class="w-16 h-16 rounded-full ${step.isFinal ? 'bg-brand-red' : 'bg-primary'} text-white flex items-center justify-center text-2xl font-bold border-4 border-light-gray shadow-md z-10">${step.number}</div>
+                        <h4 class="font-bold mt-4 text-primary">${step.title}</h4>
+                        <p class="text-sm text-secondary-gray">${step.description}</p>
+                    `;
+                    applyStepsContainer.appendChild(stepEl);
+                });
+            }
 
             // Populate FAQs
             const faqContainer = document.getElementById('faq-container');
-            faqs.forEach(faq => {
-                const faqItem = document.createElement('div');
-                faqItem.className = 'border border-gray-200 rounded-lg bg-white shadow-sm';
-                faqItem.innerHTML = `
-                    <button class="accordion-button w-full p-5 text-left font-semibold text-primary focus:outline-none">
-                        ${faq.question}
-                    </button>
-                    <div class="accordion-content hidden p-5 pt-0 text-gray-600">
-                        ${faq.answer}
-                    </div>
-                `;
-                faqContainer.appendChild(faqItem);
-            });
+            if(faqContainer) {
+                faqs.forEach(faq => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'border border-gray-200 rounded-lg bg-white shadow-sm';
+                    faqItem.innerHTML = `
+                        <button class="accordion-button w-full p-5 text-left font-semibold text-primary focus:outline-none">
+                            ${faq.question}
+                        </button>
+                        <div class="accordion-content hidden p-5 pt-0 text-gray-600 leading-relaxed">
+                            ${faq.answer}
+                        </div>
+                    `;
+                    faqContainer.appendChild(faqItem);
+                });
 
-            // FAQ Accordion Logic
-            faqContainer.addEventListener('click', function(e) {
-                const button = e.target.closest('.accordion-button');
-                if (button) {
-                    button.classList.toggle('open');
-                    const content = button.nextElementSibling;
-                    content.classList.toggle('hidden');
-                }
-            });
-
-            // Modal Logic
-            const modal = document.getElementById('job-modal');
-            const modalContent = document.getElementById('job-modal-content');
-            
-            jobListContainer.addEventListener('click', function(e) {
-                const card = e.target.closest('[data-job-id]');
-                if (card) {
-                    const jobId = parseInt(card.getAttribute('data-job-id'));
-                    const job = jobs.find(j => j.id === jobId);
-                    if (job) {
-                        modalContent.innerHTML = `
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h2 class="text-3xl font-bold text-primary">${job.title}</h2>
-                                    <p class="text-md font-semibold text-secondary-gray">${job.department}</p>
-                                </div>
-                                <button id="close-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
-                            </div>
-                            <p class="mb-6 text-gray-600">${job.description}</p>
-                            
-                            <div class="space-y-6">
-                                <div>
-                                    <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1">✅ 任務內容</h4>
-                                    <ul class="list-disc list-inside space-y-1 text-gray-700">
-                                        ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1">🚀 你會獲得的成長</h4>
-                                    <p class="text-gray-700">${job.growth}</p>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1">👥 我們在找這樣的你</h4>
-                                    <ul class="list-disc list-inside space-y-1 text-gray-700">
-                                        ${job.qualifications.map(q => `<li>${q}</li>`).join('')}
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-8 text-center">
-                                <a href="#apply" id="modal-apply-button" class="cta-button-primary inline-block">🟢 我要應徵這個職位</a>
-                            </div>
-                        `;
-                        modal.classList.remove('hidden');
-                        document.getElementById('close-modal').addEventListener('click', () => modal.classList.add('hidden'));
-                        document.getElementById('modal-apply-button').addEventListener('click', () => modal.classList.add('hidden'));
+                // FAQ Accordion Logic
+                faqContainer.addEventListener('click', function(e) {
+                    const button = e.target.closest('.accordion-button');
+                    if (button) {
+                        button.classList.toggle('open');
+                        const content = button.nextElementSibling;
+                        content.classList.toggle('hidden');
                     }
-                }
-            });
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                }
-            });
-            
-            document.addEventListener('keydown', function (e) {
-                if (e.key === "Escape") {
-                    modal.classList.add('hidden');
-                }
-            });
+                });
+            }
         });
     </script>
 </body>
