@@ -942,19 +942,42 @@ img { max-width: 100%; height: auto; }
         });
     </script>
 
+
 <script>
-(function () {
-  try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch (e) {}
-  function goTopIfNoHash() {
-    if (!location.hash) { window.scrollTo(0, 0); }
+// Force-start at top unless there's a hash (handles Safari/BFCache/lazy images causing reflow)
+(function() {
+  var hasHash = !!location.hash;
+  try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch(e) {}
+
+  function jumpTop() {
+    if (hasHash) return;
+    var doc = document.documentElement, body = document.body;
+    // Temporarily disable smooth scroll to avoid animated drift
+    var prev = doc.style.scrollBehavior;
+    doc.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    // Restore after tick
+    setTimeout(function(){ doc.style.scrollBehavior = prev || ''; }, 50);
   }
-  // On full load and BFCache restore
-  window.addEventListener('load', goTopIfNoHash);
-  window.addEventListener('pageshow', function (e) {
-    if (e.persisted) { goTopIfNoHash(); }
-  });
+
+  // Multiple safeguards in the first second after load
+  function guard() {
+    if (hasHash) return;
+    var tries = 0;
+    var t = setInterval(function() {
+      if (location.hash) { clearInterval(t); return; }
+      if (window.scrollY > 20) jumpTop();
+      if (++tries > 30) clearInterval(t); // ~1.5s
+    }, 50);
+  }
+
+  // Run as early as possible
+  window.addEventListener('DOMContentLoaded', jumpTop);
+  window.addEventListener('load', function(){ jumpTop(); guard(); });
+  window.addEventListener('pageshow', function(e){ if (e.persisted) { jumpTop(); guard(); } });
 })();
 </script>
+
 
 </body>
 </html>
