@@ -210,6 +210,25 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
   border-top-right-radius: 1rem;
 }
 
+/* ==== Training carousel spacing fix ==== */
+.training-carousel { 
+  position: relative; 
+  margin-bottom: 1.25rem; /* create space from caption */
+}
+#training-caption {
+  margin-top: 1.25rem; /* more breathing room below the carousel */
+  line-height: 1.6;
+}
+/* Ensure nav circles don't crowd the caption */
+.training-carousel .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.training-carousel .nav-btn.left { left: 0.5rem; }
+.training-carousel .nav-btn.right { right: 0.5rem; }
+
 </style>
 </head>
 <body class="text-secondary-gray">
