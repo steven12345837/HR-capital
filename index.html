@@ -275,6 +275,10 @@ img { max-width: 100%; height: auto; }
 /* Prevent hidden anchors from affecting initial scroll */
 #team.sr-only, #units.sr-only { position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; }
 
+
+/* Ensure the mobile dropdown is visible above content */
+#mobile-menu { z-index: 50; }
+
 </style>
 </head>
 <body class="text-secondary-gray">
@@ -305,7 +309,7 @@ img { max-width: 100%; height: auto; }
 </div></div>
             <a href="#openings" class="hidden md:inline-block ml-4 cta-button-primary px-6 py-2 text-sm">立即應徵</a>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-primary focus:outline-none">
+                <button id="mobile-menu-button" class="text-primary focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="(function(btn){var m=document.getElementById('mobile-menu');if(!m)return;var h=m.classList.contains('hidden');m.classList.toggle('hidden');btn.setAttribute('aria-expanded', String(h));})(this)">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
