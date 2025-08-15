@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant" class="scroll-smooth">
 <head>
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+<meta name="description" content="群益期貨通路事業部人才招募：熱門職缺、福利與生活、職涯藍圖、應徵流程與常見問題，一站式了解並立即投遞。">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>群益期貨 通路事業部｜人才招募</title>
@@ -251,6 +253,24 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
 /* Ensure nav buttons sit above image but below caption gradient */
 .gallery-btn { z-index: 5; }
 
+
+/* --- Simple nav dropdown --- */
+header details[open] > div { display:block; }
+header details > div { display:none; }
+@media (max-width: 768px) {
+  header details > div { position:static; border:none; box-shadow:none; }
+}
+
+
+/* --- Readability helpers --- */
+.container-narrow { max-width: 72rem; margin-inline:auto; padding-inline: 1rem; }
+.lede { font-size: 1.0625rem; line-height: 1.9; color: var(--secondary-gray); }
+hr.section-divider { border: 0; height: 1px; width: min(92%, 72rem); margin: 2.5rem auto; background: linear-gradient(90deg, transparent, rgba(2,6,23,.14), transparent); }
+
+
+/* --- Ensure images never overflow on small screens --- */
+img { max-width: 100%; height: auto; }
+
 </style>
 </head>
 <body class="text-secondary-gray">
@@ -263,14 +283,22 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                 <img src="images/群益logo.png" alt="群益期貨 Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/1E3A8A/ffffff?text=群益期貨';">
                 <span class="text-primary font-semibold text-sm hidden md:inline border-l-2 pl-3 border-gray-300">通路事業部｜人才招募</span>
             </a>
-            <div class="hidden md:flex items-center space-x-2">
-                <a href="#about-us" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">關於我們</a>
-                <a href="#openings" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">熱門職缺</a>
-                <a href="#benefits-life" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">福利與生活</a>
-                <a href="#career-path" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">職涯藍圖</a>
-                <a href="#apply" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">應徵流程</a>
-                <a href="#faq" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">常見問題</a>
-            </div>
+            <div class="hidden md:flex items-center space-x-2"><a href="#about-us" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">關於我們</a>
+<a href="#openings" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">熱門職缺</a>
+<a href="#benefits-life" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">福利與生活</a>
+<a href="#career-path" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">職涯藍圖</a>
+<a href="#apply" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">應徵流程</a>
+<a href="#faq" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">常見問題</a>
+<div class="relative group">
+  <details class="cursor-pointer">
+    <summary class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors list-none">更多</summary>
+    <div class="absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-30">
+      <a href="#highlights" class="block px-4 py-2 text-sm hover:bg-gray-50">指標亮點</a>
+      <a href="#units" class="block px-4 py-2 text-sm hover:bg-gray-50">四大處室</a>
+      <a href="#team" class="block px-4 py-2 text-sm hover:bg-gray-50">團隊生活</a>
+    </div>
+  </details>
+</div></div>
             <a href="#openings" class="hidden md:inline-block ml-4 cta-button-primary px-6 py-2 text-sm">立即應徵</a>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-primary focus:outline-none">
@@ -324,7 +352,7 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                     </div>
                     <div class="hidden md:block">
                         <div class="relative w-full h-full">
-                            <img src="images/照片7.jpg" alt="團隊合作形象照" class="rounded-3xl shadow-2xl object-cover w-full h-full" onerror="this.onerror=null;this.src='https://placehold.co/600x700/e0e7ff/1E3A8A?text=團隊合作';">
+                            <img id="hero-image" loading="eager" fetchpriority="high" src="images/照片7.jpg" alt="團隊合作形象照" class="rounded-3xl shadow-2xl object-cover w-full h-full" onerror="this.onerror=null;this.src='https://placehold.co/600x700/e0e7ff/1E3A8A?text=團隊合作';">
                         </div>
                     </div>
                 </div>
@@ -375,13 +403,13 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                         </div>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="images/群益架構.png" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4" onerror="this.onerror=null;this.src='https://placehold.co/600x450/1E3A8A/ffffff?text=公司架構';">
+                        <img decoding="async" loading="lazy" src="images/群益架構.png" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4" onerror="this.onerror=null;this.src='https://placehold.co/600x450/1E3A8A/ffffff?text=公司架構';">
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center fade-in-section">
                     <div>
-                        <img src="images/通路事業部.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
+                        <img decoding="async" loading="lazy" src="images/通路事業部.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
                     </div>
                     <div>
                          <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
@@ -392,7 +420,7 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                 </div>
 
                 <div class="fade-in-section">
-                    <h3 class="text-3xl font-bold text-primary mt-24 mb-10 text-center">四大處室：我們的作戰單位</h3>
+                    <h3 class="text-3xl font-bold text-primary mt-24 mb-10 text-center"><span id="units"></span>四大處室：我們的作戰單位</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="card seg-card text-center">
                             <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
@@ -448,8 +476,9 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Benefit cards will be injected here -->
                     </div>
-                    <div id="gallery-container" class="relative max-w-xl mx-auto">
-                        <img id="gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="團隊生活照片">
+                    <div id="team" class="sr-only" aria-hidden="true"></div>
+                        <div id="gallery-container" data-anchor="team" class="relative max-w-xl mx-auto">
+                        <img decoding="async" loading="lazy" id="gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="團隊生活照片">
                         <button id="prev-btn" class="gallery-btn absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         </button>
@@ -516,7 +545,7 @@ h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
                             </div>
                         </div>
                         <div id="training-gallery-container" class="relative max-w-xl mx-auto rounded-lg overflow-hidden">
-                            <img id="training-gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="培訓支援照片">
+                            <img decoding="async" loading="lazy" id="training-gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="培訓支援照片">
                             <button id="training-prev-btn" class="gallery-btn absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                             </button>
