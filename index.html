@@ -271,6 +271,10 @@ hr.section-divider { border: 0; height: 1px; width: min(92%, 72rem); margin: 2.5
 /* --- Ensure images never overflow on small screens --- */
 img { max-width: 100%; height: auto; }
 
+
+/* Prevent hidden anchors from affecting initial scroll */
+#team.sr-only, #units.sr-only { position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; }
+
 </style>
 </head>
 <body class="text-secondary-gray">
@@ -937,5 +941,20 @@ img { max-width: 100%; height: auto; }
             });
         });
     </script>
+
+<script>
+(function () {
+  try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch (e) {}
+  function goTopIfNoHash() {
+    if (!location.hash) { window.scrollTo(0, 0); }
+  }
+  // On full load and BFCache restore
+  window.addEventListener('load', goTopIfNoHash);
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) { goTopIfNoHash(); }
+  });
+})();
+</script>
+
 </body>
 </html>
