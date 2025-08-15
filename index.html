@@ -31,27 +31,76 @@
             scroll-behavior: smooth;
         }
         
-        .section-title {
-            @apply text-4xl md:text-5xl font-black text-primary mb-4 text-center;
-        }
-        .section-subtitle {
-            @apply text-lg text-secondary-gray mb-12 md:mb-20 text-center max-w-3xl mx-auto leading-relaxed;
-        }
+        .section-title {color: var(--primary-blue);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1rem; /* ~mb-4 */
+  font-size: 2.25rem;  /* ~text-4xl */
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;   /* ~md:text-5xl */
+  }
+}
+        .section-subtitle {color: var(--secondary-gray);
+  text-align: center;
+  margin-bottom: 3rem; /* ~mb-12 */
+  max-width: 48rem;    /* ~max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;   /* ~leading-relaxed */
+}
+@media (min-width: 768px) {
+  .section-subtitle {
+    margin-bottom: 5rem; /* ~md:mb-20 */
+  }
+}
         
         /* Call-to-Action Buttons - Updated Style */
-        .cta-button {
-            @apply inline-block px-8 py-3 font-bold rounded-lg text-base transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2;
-        }
-        .cta-button-primary {
-            @apply cta-button bg-brand-red text-white hover:bg-red-700 focus:ring-brand-red;
-        }
-        .cta-button-secondary {
-            @apply cta-button bg-white text-brand-red border-2 border-brand-red hover:bg-red-50 focus:ring-brand-red;
-        }
+        .cta-button {display: inline-block;
+  padding: 0.75rem 2rem; /* px-8 py-3 */
+  font-weight: 700;
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+.cta-button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+        .cta-button-primary {background-color: var(--brand-red);
+  color: #fff;
+}
+.cta-button-primary:hover {
+  background-color: #991B1B; /* hover:bg-red-700 */
+}
+.cta-button-primary:focus {
+  outline-color: var(--brand-red);
+}
+        .cta-button-secondary {background-color: #fff;
+  color: var(--brand-red);
+  border: 2px solid var(--brand-red);
+}
+.cta-button-secondary:hover {
+  background-color: #FEF2F2; /* hover:bg-red-50 */
+}
+.cta-button-secondary:focus {
+  outline-color: var(--brand-red);
+}
 
-        .card {
-            @apply bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
-        }
+        .card {background-color: #fff;
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  transform: translateY(-0.5rem);
+}
 
         header.sticky {
             backdrop-filter: blur(10px);
@@ -92,7 +141,76 @@
             opacity: 0.3;
             cursor: not-allowed;
         }
-    </style>
+
+/* ---- Global heading spacing fix ---- */
+h1, h2, h3, h4 {
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+/* ensure first paragraph after a heading has breathing room */
+h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
+.card h3, .card h4 { margin-bottom: 0.5rem; }
+.job-header h3 { margin-bottom: 0.25rem; }
+
+/* ===== Metric Section Enhancements ===== */
+.highlights-section { position: relative; }
+.bg-dots-soft {
+  background-image: radial-gradient(rgba(30,58,138,.08) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+.metric-eyebrow{
+  display:inline-block;
+  font-size:.875rem;
+  color: var(--secondary-gray);
+  letter-spacing:.08em;
+  margin-bottom:.5rem;
+  position:relative;
+  padding:0 .75rem;
+}
+.metric-eyebrow:before, .metric-eyebrow:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:48px;
+  height:2px;
+  background: linear-gradient(90deg, transparent, rgba(30,58,138,.35), transparent);
+  transform:translateY(-50%);
+}
+.metric-eyebrow:before{ left:-48px; }
+.metric-eyebrow:after{ right:-48px; }
+
+.metric-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+.metric-card:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:6px;
+  background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+.metric-value{ font-weight:900; letter-spacing:.02em; }
+.metric-label{ display:block; font-weight:800; }
+.metric-note{ opacity:.9; }
+
+/* ===== Segmented Feature Cards ===== */
+.seg-card{
+  position:relative;
+  border:1px solid #e5e7eb;
+}
+.seg-card:before{
+  content:"";
+  position:absolute;
+  left:0; top:0; right:0;
+  height:4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--brand-red));
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+</style>
 </head>
 <body class="text-secondary-gray">
 
@@ -152,11 +270,16 @@
                             我們橫跨期貨、證券、財管與數位行銷，打造以客戶為中心的整合平台。如果你不安於現狀，渴望在金融業掀起波瀾，這裡就是你的舞台。
                         </p>
                         
-                        <!-- Hero Buttons Updated -->
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="#openings" class="cta-button-secondary">查看熱門職缺</a>
-                            <a href="#about-us" class="cta-button-secondary">了解我們更多</a>
-                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center md:justify-start">
+  <a href="#openings" aria-label="查看熱門職缺" class="group w-full border-2 border-brand-red bg-white rounded-2xl px-6 py-5 shadow-sm flex items-center justify-between gap-4 font-bold text-brand-red hover:bg-red-50 hover:shadow-lg hover:-translate-y-0.5 transition focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+    <span class="text-base md:text-lg">查看熱門職缺</span>
+    <span class="arrow text-brand-red text-xl md:text-2xl transform transition-transform group-hover:translate-x-1">→</span>
+  </a>
+  <a href="#about-us" aria-label="了解我們更多" class="group w-full border-2 border-brand-red bg-white rounded-2xl px-6 py-5 shadow-sm flex items-center justify-between gap-4 font-bold text-brand-red hover:bg-red-50 hover:shadow-lg hover:-translate-y-0.5 transition focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+    <span class="text-base md:text-lg">了解我們更多</span>
+    <span class="arrow text-brand-red text-xl md:text-2xl transform transition-transform group-hover:translate-x-1">→</span>
+  </a>
+</div>
                     </div>
                     <div class="hidden md:block">
                         <div class="relative w-full h-full">
@@ -168,27 +291,28 @@
         </section>
 
         <!-- Company Highlights Section -->
-        <section id="highlights" class="py-20 bg-light-gray">
+        <section id="highlights" class="py-20 bg-light-gray highlights-section bg-dots-soft">
             <div class="container mx-auto px-6">
                 <div class="fade-in-section text-center">
+                    <span class="metric-eyebrow">Capital Futures</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">投資人最推薦的期貨商</h2>
                     <div class="w-24 h-1 bg-brand-red mx-auto mb-10"></div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto fade-in-section">
-                    <div class="card text-center p-8">
-                        <p class="text-6xl font-black text-brand-red mb-2">13</p>
-                        <h3 class="text-xl font-bold text-primary mb-2">全球布局交易所會員</h3>
-                        <p class="text-secondary-gray">市場最多</p>
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">13</p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">全球布局交易所會員</h3>
+                        <p class="metric-note text-secondary-gray">市場最多</p>
                     </div>
-                    <div class="card text-center p-8">
-                        <p class="text-6xl font-black text-brand-red mb-2">NO.1</p>
-                        <h3 class="text-xl font-bold text-primary mb-2">全市場期經規模</h3>
-                        <p class="text-secondary-gray">市佔第一</p>
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">NO.1</p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">全市場期經規模</h3>
+                        <p class="metric-note text-secondary-gray">市佔第一</p>
                     </div>
-                    <div class="card text-center p-8">
-                        <p class="text-6xl font-black text-brand-red mb-2">24<span class="text-4xl">Hrs</span></p>
-                        <h3 class="text-xl font-bold text-primary mb-2">法人服務LME實物交割</h3>
-                        <p class="text-secondary-gray">全年無休</p>
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">24<span class="text-4xl">Hrs</span></p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">法人服務LME實物交割</h3>
+                        <p class="metric-note text-secondary-gray">全年無休</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +340,7 @@
 
                 <div class="grid md:grid-cols-2 gap-12 items-center fade-in-section">
                     <div>
-                        <img src="images/照片5.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
+                        <img src="images/通路事業部.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
                     </div>
                     <div>
                          <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
@@ -229,25 +353,25 @@
                 <div class="fade-in-section">
                     <h3 class="text-3xl font-bold text-primary mt-24 mb-10 text-center">四大處室：我們的作戰單位</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="card text-center">
+                        <div class="card seg-card text-center">
                             <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                             <h4 class="text-xl font-bold text-primary mb-2">綜合企劃處</h4>
                             <p class="text-sm font-semibold text-brand-red mb-3">讓數據說話的策略中台</p>
                             <p class="text-sm text-left leading-relaxed">部門的制度設計師與數據分析師。設計跨商品獎勵機制，負責KPI追蹤、數據儀表板建置、內部教育與SOP產出，是各處室背後最強的後勤支援。</p>
                         </div>
-                        <div class="card text-center">
+                        <div class="card seg-card text-center">
                             <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M18 8v5"></path><path d="M21 11h-6"></path><rect x="12" y="1" width="10" height="12" rx="2"></rect></svg></div>
                             <h4 class="text-xl font-bold text-primary mb-2">證券通路處</h4>
                             <p class="text-sm font-semibold text-brand-red mb-3">分公司的策略夥伴</p>
                             <p class="text-sm text-left leading-relaxed">推動群益全台證券分公司導入期貨業務，整合團隊、商品、制度與在地需求，打造一條讓證券同仁能「懂期貨、會操作、敢推廣」的完整輔導路線。</p>
                         </div>
-                        <div class="card text-center">
+                        <div class="card seg-card text-center">
                              <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9.3 15.3a1 1 0 0 1 .4-1.8l1.8-1c.5-.2.9.3.8.8l-.6 2.3a1 1 0 0 1-1.7-.5Z"></path><path d="m14.7 13.7-1.8 1c-.5.2-.9-.3-.8-.8l.6-2.3a1 1 0 0 1 1.7.5Z"></path></svg></div>
                             <h4 class="text-xl font-bold text-primary mb-2">新興通路處</h4>
                             <p class="text-sm font-semibold text-gray-500 mb-3">未來可期</p>
                             <p class="text-sm text-left leading-relaxed">我們持續探索新的合作模式與機會，目前暫無職缺開放，但歡迎您持續關注。</p>
                         </div>
-                        <div class="card text-center">
+                        <div class="card seg-card text-center">
                            <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="m8 9 1.5 3 1.5-3"></path><path d="M14.5 9h-3"></path><path d="M13 12h1.5"></path><path d="M16 12h1.5"></path></svg></div>
                             <h4 class="text-xl font-bold text-primary mb-2">數位通路處</h4>
                             <p class="text-sm font-semibold text-brand-red mb-3">數位時代的業務核心</p>
@@ -332,19 +456,19 @@
                     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
                         <div class="grid grid-cols-1 gap-8">
                             <!-- Card 1: Education -->
-                            <div class="card text-center">
+                            <div class="card seg-card text-center">
                                 <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
                                 <h4 class="text-xl font-bold text-primary mb-2">系統化教育訓練</h4>
                                 <p class="text-sm text-left leading-relaxed">定期辦理內部營業員教育訓練，加強同仁對產品、系統的熟稔度，並提供多樣化商品的交易策略。</p>
                             </div>
                             <!-- Card 2: Activities -->
-                            <div class="card text-center">
+                            <div class="card seg-card text-center">
                                 <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M12 12v6"/><path d="M15 15H9"/><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5V18h-5v1.5A2.5 2.5 0 0 0 12 22z"/></svg></div>
                                 <h4 class="text-xl font-bold text-primary mb-2">多元轉化活動</h4>
                                 <p class="text-sm text-left leading-relaxed">透過內部獎勵、交易競賽活化客戶，並邀請知名講師舉辦講座，強化客戶交易觀念，同時開發外部客群。</p>
                             </div>
                             <!-- Card 3: Digital Tools -->
-                            <div class="card text-center">
+                            <div class="card seg-card text-center">
                                  <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M21.2 8.4c.5.38.8.97.8 1.6v4c0 .63-.3 1.22-.8 1.6l-6 4.5c-.5.38-1.2.38-1.7 0l-6-4.5c-.5-.38-.8-.97-.8-1.6v-4c0-.63.3-1.22.8-1.6l6-4.5c.5-.38 1.2-.38 1.7 0l6 4.5z"/><path d="M12 22v-7.5"/><path d="m12 12-9-6.5"/><path d="m21 5.5-9 6.5"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="m12 22 9-6.5"/></svg></div>
                                 <h4 class="text-xl font-bold text-primary mb-2">強大數位工具</h4>
                                 <p class="text-sm text-left leading-relaxed">提供 I-View 投顧影音、智能推播、盤前直播、順勢通道工具等獨家資源，全面剖析市場，輔助業務推廣。</p>
@@ -740,5 +864,3 @@
     </script>
 </body>
 </html>
-
-
