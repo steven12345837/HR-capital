@@ -37,589 +37,1065 @@
   font-weight: 900;
   text-align: center;
   margin-bottom: 1rem; /* ~mb-4 */
-  font-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.25rem); /* 文字大小會隨螢幕縮放 */
-  line-height: 1.2; /* 更好的行距可讀性 */ }
-        .section-subtitle { 
-  color: #0f172a; 
-  font-weight: 500; 
-  text-align: center; 
-  margin-bottom: 1.75rem; /* ~mb-7 */
-  font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.1rem); /* 隨螢幕縮放 */
-  line-height: 1.6; /* 更舒適的段落行距 */
+  font-size: 2.25rem;  /* ~text-4xl */
+  line-height: 1.2;
 }
-        .card { 
-            background: white;
-            border-radius: 1rem;
-            border: 1px solid #e5e7eb;
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;   /* ~md:text-5xl */
+  }
+}
+        .section-subtitle {color: var(--secondary-gray);
+  text-align: center;
+  margin-bottom: 3rem; /* ~mb-12 */
+  max-width: 48rem;    /* ~max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;   /* ~leading-relaxed */
+}
+@media (min-width: 768px) {
+  .section-subtitle {
+    margin-bottom: 5rem; /* ~md:mb-20 */
+  }
+}
+        
+        /* Call-to-Action Buttons - Updated Style */
+        .cta-button {display: inline-block;
+  padding: 0.75rem 2rem; /* px-8 py-3 */
+  font-weight: 700;
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+.cta-button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+        .cta-button-primary {background-color: var(--brand-red);
+  color: #fff;
+}
+.cta-button-primary:hover {
+  background-color: #991B1B; /* hover:bg-red-700 */
+}
+.cta-button-primary:focus {
+  outline-color: var(--brand-red);
+}
+        .cta-button-secondary {background-color: #fff;
+  color: var(--brand-red);
+  border: 2px solid var(--brand-red);
+}
+.cta-button-secondary:hover {
+  background-color: #FEF2F2; /* hover:bg-red-50 */
+}
+.cta-button-secondary:focus {
+  outline-color: var(--brand-red);
+}
+
+        .card {background-color: #fff;
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  transform: translateY(-0.5rem);
+}
+
+        header.sticky {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
         }
-        .card:hover {
-            border-color: var(--brand-red);
+
+        /* FAQ Accordion Arrow */
+        .accordion-button::after {
+            content: '▼';
+            float: right;
+            transform: scale(0.8);
+            transition: transform 0.3s ease-in-out;
+            color: var(--primary-blue);
         }
-        .benefit-card:hover {
-            transform: translateY(-3px);
-            transition: transform 0.2s ease;
+        .accordion-button.open::after {
+            transform: scale(0.8) rotate(180deg);
         }
-        .section-title s:last-child {
-            display: inline-block;
-            color: var(--brand-red);
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            height: 2rem; /* ~h-8 */
-            padding: 0 0.75rem; /* ~px-3 */
-            background-color: rgba(185, 28, 28, 0.08); /* 紅色透明背景 */
-            color: var(--brand-red);
-            border-radius: 9999px; /* ~rounded-full */
-            font-weight: 600;
-            font-size: 0.95rem; /* 稍大 */
-            letter-spacing: 0.4px; /* 微調字距 */
-            border: 1px solid rgba(185, 28, 28, 0.18); /* 淡淡的邊框 */
-        }
-        .fade-in {
+
+        .fade-in-section {
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .fade-in.visible {
+        .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        /* 卡片陰影漸層 */
-        .shadow-soft {
-            box-shadow: 0 10px 30px rgba(2, 6, 23, .06), 0 0 1px rgba(2, 6, 23, .1);
-        }
-        .shadow-soft-hover:hover {
-            box-shadow: 0 12px 36px rgba(2, 6, 23, .12), 0 0 1px rgba(2, 6, 23, .1);
-        }
-        /* 輪播點點樣式 */
-        .dot {
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            transition: background-color .25s, transform .25s;
-        }
-        .dot.active {
-            background-color: var(--brand-red);
-            transform: scale(1.15);
-        }
-        .carousel-mask {
-            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-        }
-        /* 職缺卡片標籤 */
-        .tag {
-            background: #fff;
-            border: 1px solid #e5e7eb; /* 加上邊框 */
-            color: var(--primary-blue);
-            padding: .35rem .65rem;
-            border-radius: .5rem;
-            font-weight: 700; /* 更醒目 */
-            font-size: 0.85rem; /* 稍微大一點讓可讀性更好 */
-        }
-        .tag-hot {
-            background-color: rgba(185, 28, 28, 0.12);
-            color: var(--brand-red);
-            border: 1px solid rgba(185, 28, 28, .2);
-            font-weight: 800;
-        }
-        /* modal 背景 */
-        #job-modal-overlay {
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(2px);
-        }
-        /* gallery 圖片容器 */
-        .gallery-container { aspect-ratio: 16 / 10; }
-        /* 讓卡片在手機排版更舒適 */
-        @media (max-width: 640px) {
-            .grid-cols-2.sm\\:grid-cols-3 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+        /* Gallery Button Style */
+        .gallery-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
-        /* --- SPA anchor offset to avoid sticky header overlap --- */
-[id]{ scroll-margin-top: 96px; }
-@media (max-width: 767px){
-  [id]{ scroll-margin-top: 88px; }
+/* ---- Global heading spacing fix ---- */
+h1, h2, h3, h4 {
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+/* ensure first paragraph after a heading has breathing room */
+h1 + p, h2 + p, h3 + p, h4 + p { margin-top: 0.5rem; }
+.card h3, .card h4 { margin-bottom: 0.5rem; }
+.job-header h3 { margin-bottom: 0.25rem; }
+
+/* ===== Metric Section Enhancements ===== */
+.highlights-section { position: relative; }
+.bg-dots-soft {
+  background-image: radial-gradient(rgba(30,58,138,.08) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+.metric-eyebrow{
+  display:inline-block;
+  font-size:.875rem;
+  color: var(--secondary-gray);
+  letter-spacing:.08em;
+  margin-bottom:.5rem;
+  position:relative;
+  padding:0 .75rem;
+}
+.metric-eyebrow:before, .metric-eyebrow:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:48px;
+  height:2px;
+  background: linear-gradient(90deg, transparent, rgba(30,58,138,.35), transparent);
+  transform:translateY(-50%);
+}
+.metric-eyebrow:before{ left:-48px; }
+.metric-eyebrow:after{ right:-48px; }
+
+.metric-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+.metric-card:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:6px;
+  background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+.metric-value{ font-weight:900; letter-spacing:.02em; }
+.metric-label{ display:block; font-weight:800; }
+.metric-note{ opacity:.9; }
+
+/* ===== Segmented Feature Cards ===== */
+.seg-card{
+  position:relative;
+  border:1px solid #e5e7eb;
+}
+.seg-card:before{
+  content:"";
+  position:absolute;
+  left:0; top:0; right:0;
+  height:4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--brand-red));
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
-    </style>
+/* ==== Training carousel spacing fix ==== */
+.training-carousel { 
+  position: relative; 
+  margin-bottom: 1.25rem; /* create space from caption */
+}
+#training-caption {
+  margin-top: 1.25rem; /* more breathing room below the carousel */
+  line-height: 1.6;
+}
+/* Ensure nav circles don't crowd the caption */
+.training-carousel .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.training-carousel .nav-btn.left { left: 0.5rem; }
+.training-carousel .nav-btn.right { right: 0.5rem; }
+
+
+/* ==== Training gallery caption overlay ==== */
+#training-gallery-container { position: relative; }
+#training-caption.training-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 12px 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.5;
+  background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.55) 45%, rgba(2,6,23,0.85) 100%);
+  backdrop-filter: saturate(120%) blur(0.5px);
+  z-index: 3;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+#training-gallery-dots { bottom: 56px; z-index: 4; }
+/* Ensure nav buttons sit above image but below caption gradient */
+.gallery-btn { z-index: 5; }
+
+
+/* --- Simple nav dropdown --- */
+header details[open] > div { display:block; }
+header details > div { display:none; }
+@media (max-width: 768px) {
+  header details > div { position:static; border:none; box-shadow:none; }
+}
+
+
+/* --- Readability helpers --- */
+.container-narrow { max-width: 72rem; margin-inline:auto; padding-inline: 1rem; }
+.lede { font-size: 1.0625rem; line-height: 1.9; color: var(--secondary-gray); }
+hr.section-divider { border: 0; height: 1px; width: min(92%, 72rem); margin: 2.5rem auto; background: linear-gradient(90deg, transparent, rgba(2,6,23,.14), transparent); }
+
+
+/* --- Ensure images never overflow on small screens --- */
+img { max-width: 100%; height: auto; }
+
+
+/* Prevent hidden anchors from affecting initial scroll */
+#team.sr-only, #units.sr-only { position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; }
+
+
+/* Ensure the mobile dropdown is visible above content */
+#mobile-menu { z-index: 50; }
+
+/* --- NEW: Job Modal Styles --- */
+#job-modal-overlay.active,
+#job-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+#job-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+</style>
 </head>
-<body class="text-slate-800">
+<body class="text-secondary-gray">
 
     <!-- Header -->
     <header class="bg-white/80 sticky top-0 z-40 shadow-md border-b border-gray-200 transition-all duration-300">
         <nav class="container mx-auto px-6 h-20 flex justify-between items-center">
             <!-- Logo with Text Updated -->
             <a href="#home" class="flex-shrink-0 flex items-center gap-3">
-                <img src="images/群益logo.png" alt="群益期貨 Logo" class="h-10 w-auto" onerror="this.src='https://placehold.co/150x40/1E3A8A/ffffff?text=群益期貨';">
-                <span class="text-lg md:text-xl font-extrabold tracking-wider text-primary">群益期貨 通路事業部</span>
+                <img src="images/群益logo.png" alt="群益期貨 Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/1E3A8A/ffffff?text=群益期貨';">
+                <span class="text-primary font-semibold text-sm hidden md:inline border-l-2 pl-3 border-gray-300">通路事業部｜人才招募</span>
             </a>
-
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center gap-6">
-                <a href="#home" class="font-semibold hover:text-brand-red transition-colors">首頁</a>
-                <a href="#about-us" class="font-semibold hover:text-brand-red transition-colors">了解我們</a>
-                <a href="#units" class="font-semibold hover:text-brand-red transition-colors">組織與文化</a>
-                <a href="#openings" class="font-semibold hover:text-brand-red transition-colors">熱門職缺</a>
-                <a href="#benefits-life" class="font-semibold hover:text-brand-red transition-colors">福利與生活</a>
-                <a href="#career-path" class="font-semibold hover:text-brand-red transition-colors">職涯藍圖</a>
-                <a href="#apply" class="font-semibold hover:text-brand-red transition-colors">應徵流程</a>
-                <a href="#faq" class="font-semibold hover:text-brand-red transition-colors">FAQ</a>
+            <div class="hidden md:flex items-center space-x-2"><a href="#about-us" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">關於我們</a>
+<a href="#openings" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">熱門職缺</a>
+<a href="#benefits-life" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">福利與生活</a>
+<a href="#career-path" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">職涯藍圖</a>
+<a href="#apply" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">應徵流程</a>
+<a href="#faq" class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors">常見問題</a>
+<div class="relative group">
+  <details class="cursor-pointer">
+    <summary class="px-4 py-2 text-sm font-semibold text-primary rounded-lg hover:text-brand-red transition-colors list-none">更多</summary>
+    <div class="absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-30">
+      <a href="#highlights" class="block px-4 py-2 text-sm hover:bg-gray-50">指標亮點</a>
+      <a href="#units" class="block px-4 py-2 text-sm hover:bg-gray-50">四大處室</a>
+      <a href="#team" class="block px-4 py-2 text-sm hover:bg-gray-50">團隊生活</a>
+    </div>
+  </details>
+</div></div>
+            <a href="#openings" class="hidden md:inline-block ml-4 cta-button-primary px-6 py-2 text-sm">立即應徵</a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-primary focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="(function(btn){var m=document.getElementById('mobile-menu');if(!m)return;var h=m.classList.contains('hidden');m.classList.toggle('hidden');btn.setAttribute('aria-expanded', String(h));})(this)">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-
-            <!-- CTA -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="https://line.me/R/ti/p/你的LINE_ID" target="_blank" class="inline-flex items-center gap-2 bg-brand-red text-white px-4 py-2 rounded-lg font-bold hover:opacity-90 shadow-soft">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-3.53-.64L4 20l.77-3.08A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                    </svg>
-                    LINE 專人
-                </a>
-                <a href="#apply" class="font-bold px-4 py-2 rounded-lg border-2 border-brand-red text-brand-red hover:bg-brand-red hover:text-white transition-colors">立即投遞</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded border border-gray-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
-                </svg>
-                <span class="sr-only">Open main menu</span>
-            </button>
         </nav>
-
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 bg-white">
-            <div class="container mx-auto px-6 py-4 grid grid-cols-2 gap-3">
-                <a href="#home" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">首頁</a>
-                <a href="#about-us" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">了解我們</a>
-                <a href="#units" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">組織與文化</a>
-                <a href="#openings" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">熱門職缺</a>
-                <a href="#benefits-life" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">福利與生活</a>
-                <a href="#career-path" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">職涯藍圖</a>
-                <a href="#apply" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">應徵流程</a>
-                <a href="#faq" class="px-3 py-2 rounded-lg bg-slate-50 hover:bg-slate-100">FAQ</a>
-            </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#about-us" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">關於我們</a>
+            <a href="#openings" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">熱門職缺</a>
+            <a href="#benefits-life" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">福利與生活</a>
+            <a href="#career-path" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">職涯藍圖</a>
+            <a href="#apply" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">應徵流程</a>
+            <a href="#faq" class="block text-center py-3 text-primary font-semibold hover:bg-gray-100">常見問題</a>
+            <a href="#openings" class="block text-center py-4 bg-brand-red text-white font-bold">立即應徵</a>
         </div>
     </header>
 
-    <!-- Hero / Home -->
-    <section id="home" class="relative">
-        <div class="relative overflow-hidden">
-            <img src="images/banner.webp" alt="群益期貨通路事業部 招募主視覺" class="w-full object-cover" style="aspect-ratio: 16/7;" onerror="this.src='https://placehold.co/1600x700/0f172a/fff?text=%E9%80%9A%E8%B7%AF%E4%BA%8B%E6%A5%AD%E9%83%A8+Recruiting';">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-6 text-center">
-                <div class="inline-block bg-white/95 text-slate-800 px-5 py-2 rounded-full font-bold shadow-soft border border-slate-200">
-                    <span class="text-brand-red">通路事業部</span> 招募進行中
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Highlights -->
-    <section id="highlights" class="container mx-auto px-6 py-12">
-        <h2 class="section-title">最受投資人 <s>推薦</s> 的期貨商</h2>
-        <p class="section-subtitle">四大優勢，讓你輕鬆上手、穩健成長</p>
-
-        <div class="grid md:grid-cols-4 gap-6">
-            <div class="card p-6 shadow-soft-hover">
-                <div class="badge mb-3">證券 &amp; 期貨雙向支持</div>
-                <h3 class="font-extrabold text-slate-900 text-lg mb-2">一站式投資服務</h3>
-                <p class="text-slate-600">整合股票、期貨、選擇權等多元商品，交易平台與研究資源一應俱全。</p>
-            </div>
-            <div class="card p-6 shadow-soft-hover">
-                <div class="badge mb-3">完整培訓</div>
-                <h3 class="font-extrabold text-slate-900 text-lg mb-2">快速上手支援</h3>
-                <p class="text-slate-600">新人訓練、金融商品與實務開發課程，從0到1，穩健成長。</p>
-            </div>
-            <div class="card p-6 shadow-soft-hover">
-                <div class="badge mb-3">AI 工具</div>
-                <h3 class="font-extrabold text-slate-900 text-lg mb-2">效率工具導入</h3>
-                <p class="text-slate-600">CRM、自動化行銷工具，提升開發成效與服務品質。</p>
-            </div>
-            <div class="card p-6 shadow-soft-hover">
-                <div class="badge mb-3">升遷透明</div>
-                <h3 class="font-extrabold text-slate-900 text-lg mb-2">清楚的職涯階梯</h3>
-                <p class="text-slate-600">專業線與管理線雙軌，績效導向，升遷明確。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about-us" class="bg-white py-12 border-y">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">了解我們</h2>
-            <p class="section-subtitle">我們是群益期貨通路事業部，致力於打造可持續、高效率、以客戶為中心的金融通路服務。</p>
-
-            <div class="grid md:grid-cols-2 gap-8 mt-6 items-center">
-                <div>
-                    <img src="images/部門願景.png" alt="部門願景" class="rounded-xl border border-slate-200 shadow-soft" onerror="this.src='https://placehold.co/600x380/fff/0f172a?text=%E9%83%A8%E9%96%80%E9%A1%98%E6%99%AF';">
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-extrabold text-slate-900">部門願景</h3>
-                    <p class="text-slate-700">我們致力於建立以客戶為核心的全渠道服務，整合線上與線下資源，實現交易、研究、教育與關係經營的全方位支援。</p>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="p-4 bg-slate-50 border rounded-lg">
-                            <h4 class="font-bold text-slate-900 mb-1">數據導向</h4>
-                            <p class="text-slate-600 text-sm">資料化經營，精準找到對的客戶。</p>
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="bg-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 min-h-[calc(100vh-80px)] flex items-center">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="text-center md:text-left animate-fade-in">
+                        <h1 class="text-4xl md:text-6xl font-black text-primary leading-tight">
+                            在金融賽道上<br>定義你的影響力
+                        </h1>
+                        <p class="mt-6 text-xl text-secondary-gray leading-relaxed">
+                            我們是群益期貨通路事業部。在這裡，你不只交易市場，更創造市場。
+                        </p>
+                        
+                        <div class="my-8 h-12 flex items-center justify-center md:justify-start">
+                            <div id="job-carousel" class="text-2xl font-bold text-brand-red transition-opacity duration-500"></div>
                         </div>
-                        <div class="p-4 bg-slate-50 border rounded-lg">
-                            <h4 class="font-bold text-slate-900 mb-1">AI 加持</h4>
-                            <p class="text-slate-600 text-sm">AI 工具導入，提升效率與客戶體驗。</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border rounded-lg">
-                            <h4 class="font-bold text-slate-900 mb-1">教育導入</h4>
-                            <p class="text-slate-600 text-sm">直播/短影音/文章，建立品牌信任。</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 border rounded-lg">
-                            <h4 class="font-bold text-slate-900 mb-1">法令合規</h4>
-                            <p class="text-slate-600 text-sm">嚴謹遵守規範，保障客戶與公司權益。</p>
+
+                        <p class="mb-10 text-secondary-gray max-w-lg mx-auto md:mx-0 leading-relaxed">
+                            我們橫跨期貨、證券、財管與數位行銷，打造以客戶為中心的整合平台。如果你不安於現狀，渴望在金融業掀起波瀾，這裡就是你的舞台。
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center md:justify-start">
+  <a href="#openings" aria-label="查看熱門職缺" class="group w-full border-2 border-brand-red bg-white rounded-2xl px-6 py-5 shadow-sm flex items-center justify-between gap-4 font-bold text-brand-red hover:bg-red-50 hover:shadow-lg hover:-translate-y-0.5 transition focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+    <span class="text-base md:text-lg">查看熱門職缺</span>
+    <span class="arrow text-brand-red text-xl md:text-2xl transform transition-transform group-hover:translate-x-1">→</span>
+  </a>
+  <a href="#about-us" aria-label="了解我們更多" class="group w-full border-2 border-brand-red bg-white rounded-2xl px-6 py-5 shadow-sm flex items-center justify-between gap-4 font-bold text-brand-red hover:bg-red-50 hover:shadow-lg hover:-translate-y-0.5 transition focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+    <span class="text-base md:text-lg">了解我們更多</span>
+    <span class="arrow text-brand-red text-xl md:text-2xl transform transition-transform group-hover:translate-x-1">→</span>
+  </a>
+</div>
+                    </div>
+                    <div class="block md:block">
+                        <div class="relative w-full h-full">
+                            <div class="relative w-full" style="padding-top:56.25%;">
+  <iframe
+    src="https://www.youtube.com/embed/yI5Mlw9Nyf4?rel=0&modestbranding=1&playsinline=1"
+    title="YouTube video player"
+    class="absolute inset-0 w-full h-full rounded-3xl shadow-2xl"
+    frameborder="0"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 部門照片：通路事業部 -->
-            <div class="grid md:grid-cols-2 gap-8 mt-8 items-center">
-                <div class="space-y-4 order-2 md:order-1">
-                    <h3 class="text-xl font-extrabold text-slate-900">通路事業部</h3>
-                    <p class="text-slate-700">我們的核心任務是整合內外勤資源，從前端開發、客戶關係經營，到交易支援。跨部門協作，打造可持續的成長引擎。</p>
+        <!-- Company Highlights Section -->
+        <section id="highlights" class="py-20 bg-light-gray highlights-section bg-dots-soft">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section text-center">
+                    <span class="metric-eyebrow">Capital Futures</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">投資人最推薦的期貨商</h2>
+                    <div class="w-24 h-1 bg-brand-red mx-auto mb-10"></div>
                 </div>
-                <div class="order-1 md:order-2">
-                    <img src="images/通路事業部.png" alt="通路事業部 團隊合照" class="rounded-xl border border-slate-200 shadow-soft" onerror="this.src='https://placehold.co/600x380/fff/0f172a?text=%E9%80%9A%E8%B7%AF%E4%BA%8B%E6%A5%AD%E9%83%A8';">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Units / Culture -->
-    <section id="units" class="container mx-auto px-6 py-12">
-        <h2 class="section-title">組織與文化</h2>
-        <p class="section-subtitle">以目標導向、透明溝通、快速迭代為核心，打造高效而溫暖的團隊文化。</p>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="card p-6 shadow-soft">
-                <h3 class="text-lg font-extrabold text-slate-900 mb-2">業務開發</h3>
-                <p class="text-slate-600">透過數位行銷、關係經營、活動開發與社群運營，擴大客戶觸及。</p>
-            </div>
-            <div class="card p-6 shadow-soft">
-                <h3 class="text-lg font-extrabold text-slate-900 mb-2">交易支援</h3>
-                <p class="text-slate-600">包含交易平台諮詢、下單協助、風控提醒與研究資訊推播。</p>
-            </div>
-            <div class="card p-6 shadow-soft">
-                <h3 class="text-lg font-extrabold text-slate-900 mb-2">教育內容</h3>
-                <p class="text-slate-600">直播、文章、短影音與研討會，建立品牌並強化客戶能力。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Openings -->
-    <section id="openings" class="bg-white py-12 border-t">
-        <div class="container mx-auto px-6">
-            <div class="flex items-end justify-between mb-6">
-                <div>
-                    <h2 class="section-title">查看 <s>熱門職缺</s></h2>
-                    <p class="section-subtitle">我們正在尋找對金融市場充滿熱情、重視團隊協作的人才。</p>
-                </div>
-                <div class="hidden md:flex gap-2 text-sm">
-                    <span class="tag tag-hot">🔥 熱門</span>
-                    <span class="tag">應屆畢業可</span>
-                    <span class="tag">無經驗可</span>
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto fade-in-section">
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">13</p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">全球布局交易所會員</h3>
+                        <p class="metric-note text-secondary-gray">市場最多</p>
+                    </div>
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">NO.1</p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">全市場期經規模</h3>
+                        <p class="metric-note text-secondary-gray">市佔第一</p>
+                    </div>
+                    <div class="card metric-card text-center p-8">
+                        <p class="metric-value text-6xl font-black text-brand-red mb-2">24<span class="text-4xl">Hrs</span></p>
+                        <h3 class="metric-label text-xl font-bold text-primary mb-2">法人服務LME實物交割</h3>
+                        <p class="metric-note text-secondary-gray">全年無休</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 職缺卡片清單（省略：你原本的完整卡片／modal／JS 已在這裡，保留不動） -->
-            <!-- ... 原本的職缺卡片與 Modal 程式碼 ... -->
-            
-            <!-- 以下為示意：你原檔已有完整內容 -->
-            <div id="job-list" class="grid md:grid-cols-3 gap-6">
-              <!-- 你的職缺項目卡片 -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits / Life -->
-    <section id="benefits-life" class="container mx-auto px-6 py-12">
-        <h2 class="section-title">福利與生活</h2>
-        <p class="section-subtitle">完善的薪酬福利、彈性制度與團隊活動，讓你安心長期發展。</p>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="card p-6 shadow-soft benefit-card">
-                <h3 class="font-extrabold text-slate-900 mb-2">具競爭力的薪酬</h3>
-                <p class="text-slate-600">固定薪資＋獎金＋津貼，依績效表現調整。</p>
-            </div>
-            <div class="card p-6 shadow-soft benefit-card">
-                <h3 class="font-extrabold text-slate-900 mb-2">學習資源補助</h3>
-                <p class="text-slate-600">證照補助、課程與書籍補助，提升專業力。</p>
-            </div>
-            <div class="card p-6 shadow-soft benefit-card">
-                <h3 class="font-extrabold text-slate-900 mb-2">多元活動</h3>
-                <p class="text-slate-600">部門聚餐、運動社團、節慶活動，凝聚團隊。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team / Photos -->
-    <section id="team" class="bg-white py-12 border-y">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">團隊日常</h2>
-            <p class="section-subtitle">一起努力也一起玩，保持高效與熱情。</p>
-
-            <div id="gallery-container" class="relative max-w-4xl mx-auto border rounded-xl overflow-hidden shadow-soft">
-                <img id="gallery-image" class="w-full object-cover" style="aspect-ratio: 16 / 9;" src="images/team-1.jpg" alt="團隊活動" onerror="this.src='https://placehold.co/1200x675/fff/0f172a?text=Team+Gallery';">
+        <!-- 2. About Us -->
+        <section id="about-us" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">關於我們</h2>
+                    <p class="section-subtitle">建立品牌信任感與願景畫面</p>
+                </div>
                 
-                <button id="prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow border hover:bg-white">‹</button>
-                <button id="next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow border hover:bg-white">›</button>
-
-                <div id="gallery-dots" class="absolute bottom-3 inset-x-0 flex justify-center gap-2"></div>
-            </div>
-            <p id="gallery-caption" class="text-center text-slate-600 mt-3">一起學習、一起成長</p>
-        </div>
-    </section>
-
-    <!-- Career Path -->
-    <section id="career-path" class="container mx-auto px-6 py-12">
-        <h2 class="section-title">職涯藍圖</h2>
-        <p class="section-subtitle">雙軌制：專業線與管理線，依興趣與強項規劃長期發展。</p>
-        <!-- 你的職涯階梯圖／卡片保留 -->
-    </section>
-
-    <!-- Apply -->
-    <section id="apply" class="bg-white py-12 border-t">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">應徵流程</h2>
-            <p class="section-subtitle">3～5 個工作天內回覆，流程透明、溝通快速。</p>
-
-            <div id="apply-steps-container" class="grid md:grid-cols-4 gap-6">
-                <!-- 你的應徵流程卡片保留 -->
-            </div>
-
-            <div class="text-center mt-8">
-                <a href="https://forms.gle/你的投遞表單" target="_blank" class="inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3 rounded-xl font-extrabold shadow-soft hover:opacity-90">
-                    立即投遞
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="container mx-auto px-6 py-12">
-        <h2 class="section-title">常見問題</h2>
-        <div id="faq-container" class="mt-6 space-y-4">
-            <!-- 你的 FAQ 手風琴保留 -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-200">
-        <div class="container mx-auto px-6 py-10">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h4 class="font-extrabold text-lg mb-2">群益期貨 通路事業部</h4>
-                    <p class="text-slate-300">打造以客戶為核心的全渠道服務，整合線上與線下資源，協助你在金融市場中長期發展。</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in-section">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
+                            <h3 class="text-3xl font-bold text-primary mb-4">公司簡介</h3>
+                            <p class="text-base leading-relaxed">群益期貨，是你看見世界、打造專業、寫下影響力的地方。我們是台灣唯一上市的期貨商(股票代號:6024)，擁有全球12大交易所會員資格。我們讓投資人可以一鍵直通全球市場，而你，就是這條通路的一部分。<br><br>在這裡，你不只是在金融圈打拼，而是參與一場真的在改變產業的轉型計畫。從DMA極速下單系統、到CME選擇權即時報價平台，再到我們的顧問陪跑服務與交易教育系統——我們不只想把商品賣出去，而是想讓更多人「懂怎麼做、做得穩、走得遠」。</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img decoding="async" loading="lazy" src="images/群益架構.png" alt="群益期貨公司架構圖" class="rounded-2xl shadow-lg w-full h-full object-contain bg-white p-4" onerror="this.onerror=null;this.src='https://placehold.co/600x450/1E3A8A/ffffff?text=公司架構';">
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-extrabold text-lg mb-2">快速連結</h4>
-                    <ul class="space-y-2">
-                        <li><a class="hover:text-brand-red" href="#openings">熱門職缺</a></li>
-                        <li><a class="hover:text-brand-red" href="#benefits-life">福利與生活</a></li>
-                        <li><a class="hover:text-brand-red" href="#apply">應徵流程</a></li>
-                        <li><a class="hover:text-brand-red" href="#faq">常見問題</a></li>
-                    </ul>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center fade-in-section">
+                    <div>
+                        <img decoding="async" loading="lazy" src="images/通路事業部.jpg" alt="部門願景示意圖" class="rounded-2xl shadow-lg w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/ffedd5/1E3A8A?text=部門願景';">
+                    </div>
+                    <div>
+                         <div class="bg-white p-10 rounded-2xl shadow-lg h-full">
+                            <h3 class="text-3xl font-bold text-primary mb-4">部門願景</h3>
+                            <p class="text-base leading-relaxed">通路事業部是群益期貨專責多通路整合與業務推進策略的核心部門。我們整合數位業務通路建置與集中化業務中心運營，同時支援全台分公司、集團異業合作對象與期貨交易輔助人。<br><br>我們的目標是：打造橫跨分公司、數位、制度與顧問商品的整合型行銷戰略部門，讓客戶、營業員與集團資源能夠無縫對接，共創效率與價值。</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-extrabold text-lg mb-2">聯絡我們</h4>
-                    <p class="text-slate-300">Email：hr@example.com</p>
-                    <p class="text-slate-300">LINE：@yourlineid</p>
+
+                <div class="fade-in-section">
+                    <h3 class="text-3xl font-bold text-primary mt-24 mb-10 text-center"><span id="units"></span>四大處室：我們的作戰單位</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="card seg-card text-center">
+                            <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">綜合企劃處</h4>
+                            <p class="text-sm font-semibold text-brand-red mb-3">讓數據說話的策略中台</p>
+                            <p class="text-sm text-left leading-relaxed">部門的制度設計師與數據分析師。設計跨商品獎勵機制，負責KPI追蹤、數據儀表板建置、內部教育與SOP產出，是各處室背後最強的後勤支援。</p>
+                        </div>
+                        <div class="card seg-card text-center">
+                            <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M18 8v5"></path><path d="M21 11h-6"></path><rect x="12" y="1" width="10" height="12" rx="2"></rect></svg></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">證券通路處</h4>
+                            <p class="text-sm font-semibold text-brand-red mb-3">分公司的策略夥伴</p>
+                            <p class="text-sm text-left leading-relaxed">推動群益全台證券分公司導入期貨業務，整合團隊、商品、制度與在地需求，打造一條讓證券同仁能「懂期貨、會操作、敢推廣」的完整輔導路線。</p>
+                        </div>
+                        <div class="card seg-card text-center">
+                             <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9.3 15.3a1 1 0 0 1 .4-1.8l1.8-1c.5-.2.9.3.8.8l-.6 2.3a1 1 0 0 1-1.7-.5Z"></path><path d="m14.7 13.7-1.8 1c-.5.2-.9-.3-.8-.8l.6-2.3a1 1 0 0 1 1.7.5Z"></path></svg></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">新興通路處</h4>
+                            <p class="text-sm font-semibold text-gray-500 mb-3">未來可期</p>
+                            <p class="text-sm text-left leading-relaxed">我們持續探索新的合作模式與機會，目前暫無職缺開放，但歡迎您持續關注。</p>
+                        </div>
+                        <div class="card seg-card text-center">
+                           <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="m8 9 1.5 3 1.5-3"></path><path d="M14.5 9h-3"></path><path d="M13 12h1.5"></path><path d="M16 12h1.5"></path></svg></div>
+                            <h4 class="text-xl font-bold text-primary mb-2">數位通路處</h4>
+                            <p class="text-sm font-semibold text-brand-red mb-3">數位時代的業務核心</p>
+                            <p class="text-sm text-left leading-relaxed">負責打造全新的業務形態：數位內容導客 × 跨商品推廣 × 顧問服務整合。以 LINE 為主軸，建立完整的線上客戶經營機制，打造無地域限制的虛擬業務團隊。</p>
+                        </div>
+                    </div>
+                    <p class="mt-16 text-center text-2xl font-bold text-primary">你會在哪一處發光？讓我們一起來定義。</p>
                 </div>
             </div>
-            <div class="mt-8 text-xs text-slate-400">
-                <p>＊警語＊ 期貨交易具有風險，交易人應先評估自身資金及所能負擔之風險，過去績效或未來預期的表現不可作為日後績效之保證。</p>
-                <p class="mt-2">&copy; 2025 群益期貨 通路事業部. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <!-- 你原有的互動 JS（輪播、職缺 Modal、FAQ 等）保留在這裡 -->
+        <!-- 3. Job Openings -->
+        <section id="openings" class="py-28 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">熱門職缺</h2>
+                    <p class="section-subtitle">我們在找尋能一起定義未來的夥伴。點擊職缺，發現你的可能性。</p>
+                </div>
+                <div id="job-list" class="space-y-4 max-w-4xl mx-auto fade-in-section">
+                    <!-- Job items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- (合併) 4. Benefits & Team Life -->
+        <section id="benefits-life" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">理想福利與團隊生活</h2>
+                    <p class="section-subtitle">我們照顧你的身心，投資你的成長，更相信最好的工作氛圍來自於互信的夥伴關係。</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 items-center fade-in-section">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Benefit cards will be injected here -->
+                    </div>
+                    <div id="team" class="sr-only" aria-hidden="true"></div>
+                        <div id="gallery-container" data-anchor="team" class="relative max-w-xl mx-auto">
+                        <img decoding="async" loading="lazy" id="gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="團隊生活照片">
+                        <button id="prev-btn" class="gallery-btn absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button id="next-btn" class="gallery-btn absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                        <div id="gallery-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <!-- Dots will be generated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (修改) 5. Career Path -->
+        <section id="career-path" class="py-28 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">你的職涯藍圖</h2>
+                    <p class="section-subtitle">我們提供不只一份工作，而是一個能讓你持續成長、跨界發展的事業舞台。</p>
+                </div>
+                
+                <div class="fade-in-section mb-20">
+                    <h3 class="text-3xl font-bold text-primary mb-12 text-center">清晰的成長路徑</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-2">
+                        <div class="p-6 bg-white border-2 border-blue-100 rounded-lg text-center shadow-lg w-60">
+                            <div class="text-sm text-gray-500">Stage 1</div>
+                            <div class="text-xl font-bold text-primary">業務專員</div>
+                        </div>
+                        <div class="text-brand-red font-bold text-3xl p-4 transform md:rotate-0 rotate-90">→</div>
+                        <div class="p-6 bg-white border-2 border-blue-200 rounded-lg text-center shadow-lg w-60">
+                            <div class="text-sm text-gray-500">Stage 2</div>
+                            <div class="text-xl font-bold text-primary">業務科長</div>
+                        </div>
+                        <div class="text-brand-red font-bold text-3xl p-4 transform md:rotate-0 rotate-90">→</div>
+                        <div class="p-6 bg-white border-2 border-blue-300 rounded-lg text-center shadow-lg w-60">
+                             <div class="text-sm text-gray-500">Stage 3</div>
+                            <div class="text-xl font-bold text-primary">通路副理 / 產品經理</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in-section">
+                    <h3 class="text-3xl font-bold text-primary mb-12 text-center">全方位的培訓支援</h3>
+                    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="grid grid-cols-1 gap-8">
+                            <!-- Card 1: Education -->
+                            <div class="card seg-card text-center">
+                                <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
+                                <h4 class="text-xl font-bold text-primary mb-2">系統化教育訓練</h4>
+                                <p class="text-sm text-left leading-relaxed">定期辦理內部營業員教育訓練，加強同仁對產品、系統的熟稔度，並提供多樣化商品的交易策略。</p>
+                            </div>
+                            <!-- Card 2: Activities -->
+                            <div class="card seg-card text-center">
+                                <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M12 12v6"/><path d="M15 15H9"/><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5V18h-5v1.5A2.5 2.5 0 0 0 12 22z"/></svg></div>
+                                <h4 class="text-xl font-bold text-primary mb-2">多元轉化活動</h4>
+                                <p class="text-sm text-left leading-relaxed">透過內部獎勵、交易競賽活化客戶，並邀請知名講師舉辦講座，強化客戶交易觀念，同時開發外部客群。</p>
+                            </div>
+                            <!-- Card 3: Digital Tools -->
+                            <div class="card seg-card text-center">
+                                 <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M21.2 8.4c.5.38.8.97.8 1.6v4c0 .63-.3 1.22-.8 1.6l-6 4.5c-.5.38-1.2.38-1.7 0l-6-4.5c-.5-.38-.8-.97-.8-1.6v-4c0-.63.3-1.22.8-1.6l6-4.5c.5-.38 1.2-.38 1.7 0l6 4.5z"/><path d="M12 22v-7.5"/><path d="m12 12-9-6.5"/><path d="m21 5.5-9 6.5"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="m12 22 9-6.5"/></svg></div>
+                                <h4 class="text-xl font-bold text-primary mb-2">強大數位工具</h4>
+                                <p class="text-sm text-left leading-relaxed">提供 I-View 投顧影音、智能推播、盤前直播、順勢通道工具等獨家資源，全面剖析市場，輔助業務推廣。</p>
+                            </div>
+                        </div>
+                        <div id="training-gallery-container" class="relative max-w-xl mx-auto rounded-lg overflow-hidden">
+                            <img decoding="async" loading="lazy" id="training-gallery-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="培訓支援照片">
+                            <button id="training-prev-btn" class="gallery-btn absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button id="training-next-btn" class="gallery-btn absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 font-bold p-3 rounded-full shadow-md transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                            <div id="training-gallery-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <!-- Dots will be generated by JS -->
+                            </div>
+                        
+<p id="training-caption" class="training-caption"></p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Application Process -->
+        <section id="apply" class="py-28 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">應徵流程</h2>
+                    <p class="section-subtitle">我們設計了簡單透明的流程，期待與你相遇。</p>
+                </div>
+                <div class="relative max-w-5xl mx-auto fade-in-section">
+                    <div class="hidden md:block absolute top-8 left-0 w-full h-1 bg-gray-300"></div>
+                    <div id="apply-steps-container" class="relative grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
+                        <!-- Steps will be injected here -->
+                    </div>
+                </div>
+
+                <div class="mt-20 grid md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto fade-in-section">
+                    <div class="card p-8">
+                        <h3 class="text-xl font-bold mb-4 text-primary">前往 104 網站應徵</h3>
+                        <a href="https://www.104.com.tw/company/18n4a3yw" target="_blank" class="cta-button-primary w-full block">點擊前往</a>
+                    </div>
+                    <div class="card p-8">
+                        <h3 class="text-xl font-bold mb-4 text-primary">加入官方 LINE</h3>
+                        <a href="https://line.me/R/ti/p/@a6024" target="_blank" class="cta-button-secondary w-full block">點擊加入好友</a>
+                    </div>
+                     <div class="card p-8">
+                        <h3 class="text-xl font-bold mb-4 text-primary">或寄送履歷至</h3>
+                        <p class="text-lg text-primary font-semibold break-all pt-3">hr.channel@capital.com.tw</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- 7. FAQ Section -->
+        <section id="faq" class="py-28 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="fade-in-section">
+                    <h2 class="section-title">常見問題</h2>
+                    <p class="section-subtitle">預先回答您的疑問，讓您更放心。</p>
+                </div>
+                <div id="faq-container" class="max-w-3xl mx-auto space-y-4 fade-in-section">
+                    <!-- FAQ items will be injected here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white pt-16 pb-12">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-2xl font-bold mb-4">有問題想先聊聊？</h3>
+                <p class="mb-2">招募窗口：人力資源部 林小姐</p>
+                <p class="mb-6">Email: <a href="mailto:hr.channel@capital.com.tw" class="text-red-400 hover:underline">hr.channel@capital.com.tw</a></p>
+                
+                <div class="flex justify-center items-center space-x-2 text-gray-300 mb-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <a href="https://www.google.com/maps/search/?api=1&query=台北市松山區民生東路三段156號7F之6" target="_blank" class="hover:underline">
+                        台北市松山區民生東路三段156號7F之6
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-400">&copy; 2024 群益期貨股份有限公司版權所有</p>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- NEW: Job Details Modal -->
+    <div id="job-modal-overlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="job-modal" class="fixed top-1/2 left-1/2 w-[92vw] max-w-3xl max-h-[90vh] bg-white rounded-2xl shadow-2xl z-50 opacity-0 scale-95 pointer-events-none transition-all duration-300 flex flex-col -translate-x-1/2 -translate-y-1/2">
+        <div class="p-6 border-b flex justify-between items-start">
+            <div>
+                <h2 id="modal-title" class="text-2xl font-bold text-primary">職缺詳情</h2>
+                <p id="modal-department" class="text-secondary-gray font-semibold"></p>
+            </div>
+            <button id="modal-close-btn" class="text-gray-400 hover:text-brand-red transition-colors" aria-label="關閉視窗">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div id="modal-body" class="p-6 md:p-8 overflow-y-auto flex-grow">
+            <!-- Job details will be injected here -->
+        </div>
+        <div class="p-6 bg-slate-50 border-t rounded-b-2xl text-center">
+            <a href="#apply" id="modal-apply-btn" class="cta-button-primary inline-block">我要應徵這個職位</a>
+        </div>
+    </div>
+
     <script>
-    // （省略：這裡是你原本檔案中的完整互動腳本，已保留不動）
-    // 例如：圖庫輪播、FAQ 手風琴、職缺彈窗、以及行動選單自動收合...
-    (function(){
-      // Mobile menu auto-close（你的原本程式）
-      const btn = document.getElementById('mobile-menu-button');
-      const menu = document.getElementById('mobile-menu');
-      if(!btn || !menu) return;
-      btn.addEventListener('click', function(ev){
-        ev.stopPropagation();
-        menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
-      });
-      function closeMenu(){
-        if(!menu.classList.contains('hidden')){
-          menu.classList.add('hidden');
-          btn.setAttribute('aria-expanded','false');
-        }
-      }
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-      document.addEventListener('click', function(ev){
-        const within = menu.contains(ev.target) || btn.contains(ev.target);
-        if(!within) closeMenu();
-      });
-      document.addEventListener('keydown', function(ev){
-        if(ev.key === 'Escape') closeMenu();
-      });
-      window.addEventListener('resize', function(){
-        if(window.matchMedia('(min-width: 768px)').matches){
-          closeMenu();
-        }
-      });
-    })();
+        // --- Data ---
+        const jobCarouselItems = ["專案整合幕僚","證券通路業務","數位通路業務科長","數位通路業務員","行政企劃人員"];
+        const jobs = [
+            {id:1,title:'專案整合幕僚',department:'綜合企劃處',tags:['跨部門協作','制度設計','專案管理'],preview:'我們正在尋找一位擁有系統思維、進度敏感度與策略眼光的「幕僚型人才」。你將直接支援部門主管，協助追蹤專案、整合資源、建立流程，讓策略真正被執行、讓專案不只是待辦清單，而是成果。這不只是追進度的工作，而是幫一整個部門「跑得動、跑得快、跑得準」。',description:'我們正在尋找一位擁有系統思維、進度敏感度與策略眼光的「幕僚型人才」。你將直接支援部門主管，協助追蹤專案、整合資源、建立流程，讓策略真正被執行、讓專案不只是待辦清單，而是成果。這不只是追進度的工作，而是幫一整個部門「跑得動、跑得快、跑得準」。',responsibilities:['整合各處室專案進度與風險預警、進程設定','協助製作簡報、會議記錄、提案架構與執行追蹤','跨部門協作窗口，處理部門與他單位的溝通橋梁','優化制度流程與KPI追蹤邏輯，提升內部效率','主管交辦之專案研究、數據報告、制度內化輔助'],growth:'你將學會如何從部門高度鳥瞰全局，並深入細節推動執行。這是培養策略思維與營運管理能力的最佳位置。',qualifications:['擅長統整資訊與掌控節奏，邏輯與文字表達都不錯','熟悉 Notion / Excel / PowerPoint 等工具','有專案管理、營運企劃、幕僚或策略助理經驗佳','喜歡在「人與制度中間」，幫助事情發生的人']},
+            {id:2,title:'證券通路業務',department:'證券通路處',tags:['分公司協調','教育輔導','現場手感'],preview:'不是只會講商品，而是願意走進分公司，帶著制度與商品去解題，講「怎麼讓這件事在這裡發生」。',description:'不是每個證券分公司都會主動推期貨，但你可以讓這件事變得可行。我們正在尋找願意走進分公司、帶著制度與商品去解題的你。不是只會講商品，而是願意講「怎麼讓這件事在這裡發生」。',responsibilities:['規劃分公司期貨教育與商品推廣活動','協助設計銷售話術與業績激勵制度，提升轉化動能','實地拜訪、輔導營業員跨商品經營（含策略分享）','擔任總公司與據點的溝通協調者，處理落地細節','撰寫活動報告與提案資料，追蹤制度成效'],growth:'你將成為總公司與前線的關鍵樞紐，培養面對面的溝通協調力、教育訓練的設計力，以及解決實際業務問題的實戰力。',qualifications:['曾在金融前線（如證券營業員）或推廣端工作過','喜歡到現場與人互動、分享經驗、拆解問題','懂商品、不怕講解，有制度敏感度與教學熱忱','願意全台分公司出差，有戰略思維也有現場手感']},
+            {id:3,title:'數位通路業務科長',department:'數位通路處',tags:['數位帶人','團隊領導','業績拓展'],preview:'這不只是一份主管職，而是一項推動金融服務轉型的任務。你將負責打造並帶領一支以數位化為核心的業務團隊。',description:'通路事業部正在招募一位能夠結合業務開發力、團隊領導力與數位思維的數位業務科長。這不只是一份主管職，而是一項推動金融服務轉型的任務。你將負責打造並帶領一支以數位化為核心的業務團隊，橫跨線上與線下、期貨與證券、內容與商品、策略與成效。',responsibilities:['擬定業務拓展策略，發展數位通路與異業合作','負責期貨與證券業務之線上、線下整合推廣','深耕法人與高資產客群，提供策略引導與商品解說','規劃社群媒體話題策略，搭配團隊行銷活動推進導客成效','主導業務企劃與專案執行，定期檢核績效與轉換率','帶領並培訓團隊成員，建立可複製、可擴張的業務行為模式'],growth:'你將從一個執行者轉變為策略制定者與團隊領導者，學習如何從零到一建立團隊、設計業務模式，並用數據驅動決策。',qualifications:['有金融業務經驗3年以上，曾任業績好手或初階主管','有帶團隊經驗，具備規劃、輔導與績效追蹤能力','對顧問商品、策略導客、異業合作有高度興趣與實戰思維']},
+            {id:4,title:'數位通路業務員',department:'數位通路處',tags:['數位導客','客戶經營','團隊合作'],preview:'這份工作不是拼人脈、拼話術，而是透過內容、工具與團隊合作，系統化地培養你成為懂操作、會引導、持續進化的數位型業務員。',description:'你不需要自己單打獨鬥、從零摸索。我們已經準備好完整的 LINE 導客流程、教育素材、活動支援，讓你可以把重心放在「與客戶建立信任、提供價值」上。這份工作不是拼人脈、拼話術，而是透過內容、工具與團隊合作，系統化地培養你成為懂操作、會引導、持續進化的數位型業務員。',responsibilities:['經營國內外期貨、選擇權交易客戶，提供策略觀點與市場分析','透過講座、LINE、教育互動導客，建立穩定客戶關係','協助使用交易工具與商品操作引導（含期權邏輯）','積極參與訓練課程與商品會議，持續強化市場敏感度','發想、執行團隊業務活動，協助推廣主題與轉化流程'],growth:'你將學會最前緣的數位行銷與客戶經營技巧，建立自己的線上專業品牌，並在團隊支援下，打造穩健且可持續成長的業績模式。',qualifications:['有期貨業務員資格（必要）','對市場、數據、交易邏輯有興趣，樂於學習','重視關係經營，致力於長期支持與策略陪跑','想從單打獨鬥轉向系統化業績模式的人']},
+            {id:5,title:'行政企劃人員',department:'綜合企劃處',tags:['制度設計','數據分析','營運支援'],preview:'你將成為部門最重要的推進引擎之一，負責設計制度、撰寫SOP、做出讓大家看得懂的數據報表，幫助每一位業務、每一個制度都能清楚執行、持續優化。',description:'你將成為部門最重要的推進引擎之一，負責設計制度、撰寫SOP、做出讓大家看得懂的數據報表，幫助每一位業務、每一個制度都能清楚執行、持續優化。如果你喜歡邏輯、有系統、善分析，這裡很適合你發揮。',responsibilities:['設計獎勵制度、跨商品激勵方案與業績追蹤機制','製作業務儀表板與營運報表，協助主管掌握數據與績效','撰寫並維護SOP、制度公告、推動內部制度落地','整合行銷活動所需行政支援，協助物料、流程與後勤安排','參與內外部行銷推廣與教育活動之專案執行與追蹤','支援跨處行政流程與主管交辦事項，協助專案統整與資料彙整'],growth:'你將成為組織運作的架構師，從數據中洞察問題，用制度解決問題。這份工作能培養你強大的邏輯分析與流程優化能力。',qualifications:['熟悉 Excel、Google Sheets、PPT','有制度設計、營運分析、行政或業務支援經驗佳','細心、有邏輯、可以一次處理多件事且條理清楚','喜歡當組織中讓事情變簡單、資訊變透明的那個人']}
+        ];
+        const benefits = [
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>',title:'全方位年度福利',description:'我們關心您的身心，提供年度健康檢查；您的貢獻值得回報，保障年終與三節獎金，更有旅遊補助與生日禮金，讓您工作與生活平衡。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',title:'系統化培訓計畫',description:'從完整的新人訓到跨單位輪調，我們投資您的成長。這裡有深度的顧問商品教育，更有外部專業課程補助，助您成為頂尖人才。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',title:'透明的溝通文化',description:'這裡不只教您賣商品，更教您建立專業品牌。我們鼓勵雙向溝通，您的聲音會被聽見，您的想法能推動改變。'},
+            {icon:'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red"><path d="M12.54 2.13a1 1 0 0 0-1.08 0l-4 2A1 1 0 0 0 7 5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1 1 1 0 0 0-.46-.87Z"/><path d="M4 10.27V22c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-11.73"/><path d="M22 10.27 12 5 2 10.27"/></svg>',title:'充滿活力的團隊',description:'我們是戰友，也是家人。定期的部門聚餐、慶功宴、主題分享會與戶外 Team Building，讓團隊合作不只在辦公室，更在生活裡。'}
+        ];
+        const applySteps = [
+            {number:1, title:'提出申請', description:'投遞履歷或加入LINE'},
+            {number:2, title:'預約初談', description:'線上或電話初步認識'},
+            {number:3, title:'主管面談', description:'深入了解專業與潛力'},
+            {number:4, title:'條件確認', description:'薪資福利與報到細節'},
+            {number:'✓', title:'成為戰友', description:'歡迎加入我們！', isFinal:true}
+        ];
+        const faqs = [
+            { question: '我是金融新手也可以應徵嗎？', answer: '部分職位歡迎無經驗但充滿熱忱的新手，特別是數位通路業務員與行政企劃人員。我們會提供完整的職前與在職訓練。但部分職位如證券通路業務、業務科長則需要相關經驗。請詳閱各職缺的條件說明。' },
+            { question: '會不會需要出差到分公司？', answer: '「證券通路業務」需要頻繁至全台各分公司出差，是這個職位的主要工作內容之一。其他職位基本上以內勤為主，若有出差需求會是特例情況。' },
+            { question: '需要自己找客戶嗎？', answer: '我們的「數位通路處」已建立一套完整的數位導客系統，公司會提供名單與工具，讓你專注在客戶經營與服務上，而非傳統的陌生開發。我們更重視團隊合作與系統化作戰。' },
+            { question: '有績效壓力嗎？制度怎麼算？', answer: '我們是目標導向的團隊，設有清晰的KPI與獎勵制度，但更強調團隊目標的達成。我們鼓勵健康的競爭，但反對惡性搶單。詳細的獎金與激勵制度會在面談時清楚說明，我們相信透明的制度是團隊信任的基礎。' }
+        ];
+        const teamPhotos = [
+            'images/照片7.jpg', 'images/照片6.jpg', 'images/照片5.jpg', 'images/照片4.jpg',
+            'images/照片3.jpg', 'images/照片2.jpg', 'images/照片1.jpg'
+        ];
+        const trainingPhotos = [
+    {src:'images/教育訓練.jpg', caption:'教育訓練：完整新人訓練與專業進修課程'},
+    {src:'images/內外業務轉換.jpg', caption:'內外業務轉換：內勤 × 外勤協作推進業務'},
+    {src:'images/活化客戶.jpg', caption:'活化客戶：活動設計、獎勵機制提升轉化'},
+    {src:'images/投資講座.png', caption:'投資講座：專家講座與市場觀點分享'}
+];
+
+        // --- Functions ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Job Carousel
+            const jobCarouselEl = document.getElementById('job-carousel');
+            if(jobCarouselEl) {
+                let carouselIndex = 0;
+                function updateCarousel() {
+                    jobCarouselEl.classList.add('opacity-0');
+                    setTimeout(() => {
+                        jobCarouselEl.textContent = jobCarouselItems[carouselIndex];
+                        jobCarouselEl.classList.remove('opacity-0');
+                        carouselIndex = (carouselIndex + 1) % jobCarouselItems.length;
+                    }, 500);
+                }
+                updateCarousel();
+                setInterval(updateCarousel, 3000);
+            }
+
+            // --- REFACTORED: Job Modal Logic ---
+            const jobListContainer = document.getElementById('job-list');
+            const modalOverlay = document.getElementById('job-modal-overlay');
+            const modal = document.getElementById('job-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDepartment = document.getElementById('modal-department');
+            const modalBody = document.getElementById('modal-body');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalApplyBtn = document.getElementById('modal-apply-btn');
+
+            if (jobListContainer && modal) {
+                // 1. Populate Job List with clickable cards
+                jobs.forEach(job => {
+                    const wrapper = document.createElement('div');
+                    // Using a class 'job-card-trigger' for clarity in event delegation
+                    wrapper.className = 'job-card-trigger bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group';
+                    wrapper.dataset.jobId = job.id;
+                    wrapper.setAttribute('role', 'button');
+                    wrapper.setAttribute('tabindex', '0');
+                    wrapper.setAttribute('aria-label', `查看 ${job.title} 職缺詳情`);
+                    wrapper.innerHTML = `
+                        <div class="p-6">
+                            <div class="flex justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-primary group-hover:text-brand-red transition-colors">${job.title}</h3>
+                                    <p class="text-sm font-semibold text-secondary-gray mt-1">${job.department}</p>
+                                </div>
+                                <div class="text-brand-red text-2xl pt-1 transform transition-transform duration-300 flex-shrink-0 group-hover:translate-x-1" aria-hidden="true">→</div>
+                            </div>
+                            <p class="text-gray-600 mt-4 leading-relaxed text-sm">${job.preview}</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                ${job.tags.map(tag => `<span class="bg-red-100 text-brand-red text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    jobListContainer.appendChild(wrapper);
+                });
+
+                // 2. Function to open modal
+                const openModal = (jobId) => {
+                    const job = jobs.find(j => j.id == jobId);
+                    if (!job) return;
+
+                    // Populate modal content
+                    modalTitle.textContent = job.title;
+                    modalDepartment.textContent = job.department;
+                    modalBody.innerHTML = `
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">✅ 任務內容</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3 leading-relaxed">
+                                    ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">🚀 你會獲得的成長</h4>
+                                <p class="text-gray-700 mt-3 leading-relaxed">${job.growth}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-primary mb-2 border-b-2 border-brand-red pb-1 inline-block">👥 我們在找這樣的你</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700 mt-3 leading-relaxed">
+                                    ${job.qualifications.map(q => `<li>${q}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Show modal
+                    modalOverlay.classList.add('active');
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                };
+
+                // 3. Function to close modal
+                const closeModal = () => {
+                    modalOverlay.classList.remove('active');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                // 4. Event Listeners
+                jobListContainer.addEventListener('click', (e) => {
+                    const card = e.target.closest('.job-card-trigger');
+                    if (card) {
+                        openModal(card.dataset.jobId);
+                    }
+                });
+                 jobListContainer.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        const card = e.target.closest('.job-card-trigger');
+                        if (card) {
+                            e.preventDefault(); // Prevent space from scrolling
+                            openModal(card.dataset.jobId);
+                        }
+                    }
+                });
+
+                modalCloseBtn.addEventListener('click', closeModal);
+                modalOverlay.addEventListener('click', closeModal);
+                modalApplyBtn.addEventListener('click', closeModal); // Also close modal when clicking apply
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('active')) {
+                        closeModal();
+                    }
+                });
+            }
+            
+            // Populate Benefits
+            const benefitsContainer = document.querySelector('#benefits-life .grid .grid');
+            if(benefitsContainer) {
+                benefits.forEach(benefit => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="flex justify-center mb-4">${benefit.icon}</div>
+                        <h4 class="text-xl font-bold text-primary mb-5">${benefit.title}</h4>
+                        <p class="text-sm leading-loose">${benefit.description}</p>
+                    `;
+                    benefitsContainer.appendChild(card);
+                });
+            }
+
+            // Team Life Gallery
+            const galleryImage = document.getElementById('gallery-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const galleryDotsContainer = document.getElementById('gallery-dots');
+            if(galleryImage) {
+                let currentPhotoIndex = 0;
+
+                function updateGallery() {
+                    galleryImage.src = teamPhotos[currentPhotoIndex];
+                    galleryImage.onerror = function() {
+                        this.onerror=null;
+                        this.src=`https://placehold.co/900x600/f1f5f9/334155?text=圖片載入失敗`;
+                    };
+                    prevBtn.disabled = currentPhotoIndex === 0;
+                    nextBtn.disabled = currentPhotoIndex === teamPhotos.length - 1;
+                    
+                    const dots = galleryDotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('bg-primary', index === currentPhotoIndex);
+                        dot.classList.toggle('bg-gray-300', index !== currentPhotoIndex);
+                    });
+                }
+                
+                teamPhotos.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot w-3 h-3 rounded-full transition-colors duration-300';
+                    dot.addEventListener('click', () => {
+                        currentPhotoIndex = index;
+                        updateGallery();
+                    });
+                    galleryDotsContainer.appendChild(dot);
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex > 0) {
+                        currentPhotoIndex--;
+                        updateGallery();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentPhotoIndex < teamPhotos.length - 1) {
+                        currentPhotoIndex++;
+                        updateGallery();
+                    }
+                });
+
+                updateGallery();
+            }
+
+            // Training Gallery
+            const trainingGalleryImage = document.getElementById('training-gallery-image');
+            const trainingCaptionEl = document.getElementById('training-caption');
+            const trainingPrevBtn = document.getElementById('training-prev-btn');
+            const trainingNextBtn = document.getElementById('training-next-btn');
+            const trainingGalleryDotsContainer = document.getElementById('training-gallery-dots');
+            if(trainingGalleryImage) {
+                let currentTrainingPhotoIndex = 0;
+
+                function updateTrainingGallery() {
+                    trainingGalleryImage.src = trainingPhotos[currentTrainingPhotoIndex].src;
+                    if (trainingCaptionEl) trainingCaptionEl.textContent = trainingPhotos[currentTrainingPhotoIndex].caption;
+                    trainingGalleryImage.onerror = function() {
+                        this.onerror=null;
+                        this.src=`https://placehold.co/900x600/f1f5f9/334155?text=圖片載入失敗`;
+                    };
+                    trainingPrevBtn.disabled = currentTrainingPhotoIndex === 0;
+                    trainingNextBtn.disabled = currentTrainingPhotoIndex === trainingPhotos.length - 1;
+                    
+                    const dots = trainingGalleryDotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('bg-primary', index === currentTrainingPhotoIndex);
+                        dot.classList.toggle('bg-gray-300', index !== currentTrainingPhotoIndex);
+                    });
+                }
+                
+                trainingPhotos.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot w-3 h-3 rounded-full transition-colors duration-300';
+                    dot.addEventListener('click', () => {
+                        currentTrainingPhotoIndex = index;
+                        updateTrainingGallery();
+                    });
+                    trainingGalleryDotsContainer.appendChild(dot);
+                });
+
+                trainingPrevBtn.addEventListener('click', () => {
+                    if (currentTrainingPhotoIndex > 0) {
+                        currentTrainingPhotoIndex--;
+                        updateTrainingGallery();
+                    }
+                });
+
+                trainingNextBtn.addEventListener('click', () => {
+                    if (currentTrainingPhotoIndex < trainingPhotos.length - 1) {
+                        currentTrainingPhotoIndex++;
+                        updateTrainingGallery();
+                    }
+                });
+
+                updateTrainingGallery();
+            }
+
+            // Populate Apply Steps
+            const applyStepsContainer = document.getElementById('apply-steps-container');
+            if(applyStepsContainer) {
+                applySteps.forEach(step => {
+                    const stepEl = document.createElement('div');
+                    stepEl.className = 'flex flex-col items-center relative';
+                    stepEl.innerHTML = `
+                        <div class="w-16 h-16 rounded-full ${step.isFinal ? 'bg-brand-red' : 'bg-primary'} text-white flex items-center justify-center text-2xl font-bold border-4 border-light-gray shadow-md z-10">${step.number}</div>
+                        <h4 class="font-bold mt-4 text-primary">${step.title}</h4>
+                        <p class="text-sm text-secondary-gray leading-relaxed mt-2">${step.description}</p>
+                    `;
+                    applyStepsContainer.appendChild(stepEl);
+                });
+            }
+
+            // Populate FAQs
+            const faqContainer = document.getElementById('faq-container');
+            if(faqContainer) {
+                faqs.forEach(faq => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'border border-gray-200 rounded-lg bg-white shadow-sm';
+                    faqItem.innerHTML = `
+                        <button class="accordion-button w-full p-5 text-left font-semibold text-primary focus:outline-none">
+                            ${faq.question}
+                        </button>
+                        <div class="accordion-content hidden p-5 pt-0 text-gray-600 leading-relaxed">
+                            ${faq.answer}
+                        </div>
+                    `;
+                    faqContainer.appendChild(faqItem);
+                });
+
+                // FAQ Accordion Logic
+                faqContainer.addEventListener('click', function(e) {
+                    const button = e.target.closest('.accordion-button');
+                    if (button) {
+                        button.classList.toggle('open');
+                        const content = button.nextElementSibling;
+                        content.classList.toggle('hidden');
+                    }
+                });
+            }
+
+            // Scroll Animations
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 
-    <!-- SPA Router: clean URLs with History API (pushState) -->
+
 <script>
-(function () {
-  // 路由表（依你的區塊 id）
-  const routes = {
-    "/": "#home",
-    "/home": "#home",
-    "/highlights": "#highlights",
-    "/about-us": "#about-us",
-    "/units": "#units",
-    "/openings": "#openings",
-    "/benefits-life": "#benefits-life",
-    "/career-path": "#career-path",
-    "/apply": "#apply",
-    "/faq": "#faq",
-    "/team": "#team",
-  };
+// Force-start at top unless there's a hash (handles Safari/BFCache/lazy images causing reflow)
+(function() {
+  var hasHash = !!location.hash;
+  try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch(e) {}
 
-  // GitHub Pages base path（/repo/ 或 /）
-  function computeBase(){
-    const parts = location.pathname.split("/").filter(Boolean);
-    if (parts.length && location.hostname.endsWith(".github.io")) {
-      return "/" + parts[0] + "/";
+  function jumpTop() {
+    if (hasHash) return;
+    var doc = document.documentElement, body = document.body;
+    // Temporarily disable smooth scroll to avoid animated drift
+    var prev = doc.style.scrollBehavior;
+    doc.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    // Restore after tick
+    setTimeout(function(){ doc.style.scrollBehavior = prev || ''; }, 50);
+  }
+
+  // Multiple safeguards in the first second after load
+  function guard() {
+    if (hasHash) return;
+    var tries = 0;
+    var t = setInterval(function() {
+      if (location.hash) { clearInterval(t); return; }
+      if (window.scrollY > 20) jumpTop();
+      if (++tries > 30) clearInterval(t); // ~1.5s
+    }, 50);
+  }
+
+  // Run as early as possible
+  window.addEventListener('DOMContentLoaded', jumpTop);
+  window.addEventListener('load', function(){ jumpTop(); guard(); });
+  window.addEventListener('pageshow', function(e){ if (e.persisted) { jumpTop(); guard(); } });
+})();
+</script>
+
+
+
+<script>
+// Mobile menu toggle + auto-close (click link / outside / ESC / resize)
+(function(){
+  function qs(sel){ return document.querySelector(sel); }
+  const btn  = qs('#mobile-menu-button');
+  const menu = qs('#mobile-menu');
+  if(!btn || !menu) return;
+  btn.setAttribute('aria-controls','mobile-menu');
+  btn.setAttribute('aria-expanded','false');
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    const isHidden = menu.classList.contains('hidden');
+    if(isHidden){ menu.classList.remove('hidden'); }
+    else        { menu.classList.add('hidden'); }
+    btn.setAttribute('aria-expanded', String(isHidden));
+  });
+  function closeMenu(){
+    if(!menu.classList.contains('hidden')){
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded','false');
     }
-    return "/";
   }
-  const base = computeBase();
-  function joinBase(path){ if(base === "/") return path; const b = base.endsWith("/")? base.slice(0,-1):base; return b + (path.startsWith("/")? path: "/"+path); }
-
-  function toHash(pathname){
-    const path = pathname.replace(base, "/");
-    if (path === "/" || path === "") return "#home";
-    return "#" + path.replace(/^\/+/, "");
-  }
-  function toPath(hash){
-    const id = (hash||"").replace(/^#/, "") || "home";
-    return id === "home" ? "/" : "/" + id;
-  }
-
-  function headerOffset(){ return 88; }
-  function scrollToHash(hash, behavior="smooth"){
-    const id = (hash||"").replace(/^#/, "") || "home";
-    const el = document.getElementById(id);
-    if(!el) return;
-    const y = el.getBoundingClientRect().top + window.scrollY - headerOffset();
-    window.scrollTo({ top: y, behavior });
-    setActive(id);
-  }
-
-  function setActive(id){
-    document.querySelectorAll('header a[href^="#"], header a[href^="/"]').forEach(a=>{
-      a.classList.remove('text-brand-red');
-      const href = a.getAttribute('href') || '';
-      let target = '';
-      if(href.startsWith('/')){
-        const clean = href.replace(/\/$/,'');
-        target = (routes[clean] || '#home').replace(/^#/,'');
-      }else if(href.startsWith('#')){
-        target = href.replace(/^#/,'');
-      }
-      if(target === id) a.classList.add('text-brand-red');
-    });
-  }
-
-  function closeMobile(){
-    const m = document.getElementById('mobile-menu');
-    if(m && !m.classList.contains('hidden')) m.classList.add('hidden');
-  }
-
-  // 攔截站內連結
-  document.addEventListener('click', (e)=>{
-    const a = e.target.closest('a');
-    if(!a) return;
-    const href = a.getAttribute('href') || '';
-    if(/^(https?:|mailto:|tel:)/i.test(href)) return; // 外部連結放行
-
-    // /clean 路徑
-    if(href.startsWith('/')){
-      const clean = href.replace(/\/$/,'');
-      if(routes[clean]){
-        e.preventDefault();
-        history.pushState({ scrollTo: routes[clean] }, '', joinBase(clean));
-        scrollToHash(routes[clean]);
-        closeMobile();
-      }
-      return;
-    }
-    // #hash 相容
-    if(href.startsWith('#')){
-      const cleanPath = toPath(href).replace(/\/$/,'');
-      if(routes[cleanPath]){
-        e.preventDefault();
-        history.pushState({ scrollTo: href }, '', joinBase(cleanPath));
-        scrollToHash(href);
-        closeMobile();
-      }
+  // Close when clicking a nav link
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Close on outside click
+  document.addEventListener('click', function(ev){
+    const within = menu.contains(ev.target) || btn.contains(ev.target);
+    if(!within) closeMenu();
+  });
+  // Close on ESC
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape') closeMenu();
+  });
+  // Close when viewport becomes md and above
+  window.addEventListener('resize', function(){
+    if(window.matchMedia('(min-width: 768px)').matches){
+      closeMenu();
     }
   });
-
-  // 404.html 透過 ?p=/xxx 回傳
-  (function from404(){
-    const p = new URLSearchParams(location.search).get('p');
-    if(p && routes[p]){
-      history.replaceState({ scrollTo: routes[p] }, '', joinBase(p));
-    }
-  })();
-
-  function init(){
-    const path = location.pathname.replace(base, '/').replace(/\/$/,'') || '/';
-    if(routes[path]){
-      scrollToHash(routes[path], 'instant');
-    }else if(location.hash){
-      const clean = toPath(location.hash);
-      if(routes[clean]){
-        history.replaceState({ scrollTo: location.hash }, '', joinBase(clean));
-        scrollToHash(location.hash, 'instant');
-      }else{
-        history.replaceState({ scrollTo: '#home' }, '', joinBase('/'));
-        scrollToHash('#home', 'instant');
-      }
-    }else{
-      history.replaceState({ scrollTo: '#home' }, '', joinBase('/'));
-      scrollToHash('#home', 'instant');
-    }
-  }
-
-  window.addEventListener('popstate', ()=>{
-    const hash = toHash(location.pathname);
-    scrollToHash(hash);
-  });
-
-  // 交叉觀察切換 active（可選）
-  const sectionIds = Object.values(routes)
-    .map(h => h.replace('#',''))
-    .filter((v,i,a)=>a.indexOf(v)===i);
-  const io = new IntersectionObserver((entries)=>{
-    const vis = entries.filter(en=>en.isIntersecting).sort((a,b)=>b.intersectionRatio - a.intersectionRatio)[0];
-    if(vis) setActive(vis.target.id);
-  }, { rootMargin: '-60% 0px -35% 0px', threshold: [0, .25, .5, .75, 1] });
-  sectionIds.forEach(id=>{ const el = document.getElementById(id); if(el) io.observe(el); });
-
-  init();
 })();
 </script>
 
 </body>
 </html>
-
